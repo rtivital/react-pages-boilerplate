@@ -1,2 +1,1 @@
-# react-redux-boilerplate
-React + Redux + Sass boilerplate
+# React + Redux starter kit 
