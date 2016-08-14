@@ -4,7 +4,9 @@
   "description": "React + Redux + Sass boilerplate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=development node server",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js --progress",
+    "lint": "eslint src --ext .js --ext .jsx"
   },
   "repository": {
     "type": "git",
