@@ -35,11 +35,14 @@ module.exports = {
       title: 'React App',
       template: 'template.ejs',
     }),
+
     new ExtractTextPlugin('style.css'),
+
     new FaviconsWebpackPlugin({
       logo: './favicon.png',
-      background: '#e91e63',
+      background: '#628ce1',
     }),
+
     new webpack.optimize.DedupePlugin(),
   ],
 
