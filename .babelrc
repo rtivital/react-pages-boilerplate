@@ -2,10 +2,11 @@
   "presets": ["react", "es2015", "stage-1"],
   "plugins": [
     "transform-decorators-legacy",
-    ["transform-runtime", { "disable": { "production": true } }],
-    ["transform-react-inline-elements", { "disable": { "production": true } }],
-    ["transform-react-remove-prop-types", { "disable": { "production": true } }],
+    ["transform-runtime", { "disable": { "development": true } }],
+    ["transform-react-inline-elements", { "disable": { "development": true } }],
+    ["transform-react-remove-prop-types", { "disable": { "development": true } }],
     ["module-alias", [
+      { "src": "./src/", "expose": "app" },
       { "src": "./src/components/ui", "expose": "app-ui" },
       { "src": "./src/components", "expose": "app-components" },
       { "src": "./src/actions", "expose": "app-actions" }
