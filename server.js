@@ -1,13 +1,13 @@
 'use strict';
 
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var webpackConfig = require('./webpack.config');
-var colors = require('colors');
+import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
+import webpackConfig from './webpack.config.babel';
+import colors from 'colors';
 
-var PORT = 3000;
+const PORT = 3000;
 
-var serverConfig = {
+const serverConfig = {
   contentBase: './public',
   publicPath: '/',
   hot: true,

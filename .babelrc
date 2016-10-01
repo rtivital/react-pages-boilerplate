@@ -1,15 +1,31 @@
 {
-  "presets": ["react", "es2015", "stage-1"],
+  "presets": ["react", "es2015", "stage-0"],
   "plugins": [
     "transform-decorators-legacy",
-    ["transform-runtime", { "disable": { "development": true } }],
-    ["transform-react-inline-elements", { "disable": { "development": true } }],
-    ["transform-react-remove-prop-types", { "disable": { "development": true } }],
-    ["module-alias", [
-      { "src": "./src/", "expose": "app" },
-      { "src": "./src/components/ui", "expose": "app-ui" },
-      { "src": "./src/components", "expose": "app-components" },
-      { "src": "./src/actions", "expose": "app-actions" }
-    ]]
-  ]
+    ["module-resolver", { "root": ["./src"] }],
+    ["transform-imports", {
+      "react-router": {
+          "transform": "react-router/lib/${member}",
+          "preventFullImport": true
+      }
+    }]
+  ],
+
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-runtime",
+        "transform-react-inline-elements",
+        "transform-react-remove-prop-types",
+        "transform-react-constant-elements",
+        "transform-react-pure-class-to-function"
+      ]
+    },
+
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel",
+      ]
+    }
+  }
 }
