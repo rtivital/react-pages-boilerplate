@@ -40,7 +40,6 @@
     "node-uuid": "^1.4.7",
     "normalize-scss": "^5.0.3",
     "react": "^15.3.2",
-    "react-color-picker": "^4.0.2",
     "react-dom": "^15.3.2",
     "react-fastclick": "^2.1.2",
     "react-redux": "^4.4.5",
