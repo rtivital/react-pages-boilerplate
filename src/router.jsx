@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
+import { HotRouter } from 'utils';
 
 import { IndexPage } from 'pages';
 import AppContainer from 'components/AppContainer';
 
 const AppRouter = ({ history }) => (
-  <Router history={history}>
+  <HotRouter history={history}>
     <Route path="/" component={AppContainer}>
       <IndexRoute component={IndexPage} />
     </Route>
-  </Router>
+  </HotRouter>
 );
 
 AppRouter.propTypes = { history: PropTypes.object.isRequired };

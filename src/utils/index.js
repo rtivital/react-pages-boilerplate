@@ -1,0 +1,1 @@
+export HotRouter from './HotRouter';
