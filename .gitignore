@@ -36,5 +36,10 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Project files
+# Because Mac
+.DS_Store
+
+# Project Files
 public
+docs
+.eslintcache
