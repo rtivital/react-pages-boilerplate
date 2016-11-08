@@ -5,7 +5,9 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
