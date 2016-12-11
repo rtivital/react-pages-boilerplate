@@ -9,8 +9,6 @@
     "test:only": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-notify | tap-spec",
     "test:flow": "flow",
     "start": "cross-env NODE_ENV=development node scripts/start",
-    "start:storybook": "start-storybook -p 3003 -c storybook",
-    "build:storybook": "build-storybook -c storybook -o public/storybook",
     "build": "cross-env NODE_ENV=production webpack --progress --colors && npm run build:storybook",
     "clean": "rimraf public",
     "lint": "npm run lint:eslint-fix && npm run lint:stylelint",
@@ -18,8 +16,10 @@
     "lint:eslint-fix": "eslint src --ext .js --ext .jsx --fix",
     "lint:eslint-cache": "eslint src --ext .js --ext .jsx --cache",
     "lint:stylelint": "stylelint **/*.scss",
-    "gh:build": "npm run clean && npm run build:storybook && cross-env NODE_ENV=production BUILD=pages webpack --progress --colors",
-    "gh:deploy": "npm run gh:build && gh-pages -d public"
+    "pages:build": "npm run clean && npm run build:storybook && cross-env NODE_ENV=production BUILD=pages webpack --progress --colors",
+    "pages:deploy": "npm run pages:build && gh-pages -d public",
+    "storybook:start": "start-storybook -p 3003 -c storybook",
+    "storybook:build": "build-storybook -c storybook -o public/storybook"
   },
   "pre-push": [
     "test:cache"
