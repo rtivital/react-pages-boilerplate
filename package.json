@@ -4,9 +4,9 @@
   "description": "Boilerplate for second React Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint:eslint && npm run lint:stylelint && npm run test:only",
-    "test:cache": "npm run lint:eslint-cache && npm run lint:stylelint && npm run test:only",
-    "test:only": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-notify | tap-spec",
+    "test": "npm run lint:eslint && npm run lint:stylelint && npm run test:tape",
+    "test:cache": "npm run lint:eslint-cache && npm run lint:stylelint && npm run test:tape",
+    "test:tape": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-notify | tap-spec",
     "test:flow": "flow",
     "start": "cross-env NODE_ENV=development node scripts/start",
     "build": "cross-env NODE_ENV=production webpack --progress --colors && npm run build:storybook",
