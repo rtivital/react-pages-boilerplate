@@ -73,7 +73,6 @@ const pluginsBase = [
   new webpack.DefinePlugin({
     'process.env': { // build is used for gh-pages
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
-      BUILD: JSON.stringify(process.env.BUILD || ''),
     },
   }),
 ];

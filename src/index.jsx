@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
-import { hashHistory, browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 
 import 'react-fastclick';
@@ -12,9 +12,7 @@ import configureStore from './store';
 import AppRouter from './router';
 
 const store = configureStore();
-const history = process.env.BUILD === 'pages' ? hashHistory : browserHistory;
-const appHistory = syncHistoryWithStore(history, store);
-
+const appHistory = syncHistoryWithStore(hashHistory, store);
 const rootElement = document.getElementById('app');
 
 render(

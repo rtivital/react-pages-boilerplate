@@ -1,14 +1,11 @@
-import { browserHistory, hashHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { throttle } from 'lodash';
 import rootReducer from 'modules';
 
-// create routing actions for hashHistory while deploying on gh-pages
-const routingMiddleware = routerMiddleware(
-  process.env.BUILD === 'pages' ? hashHistory : browserHistory
-);
+const routingMiddleware = routerMiddleware(hashHistory);
 
 const middlewares = [
   thunkMiddleware,
