@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plugin:flowtype/recommended"],
-  "plugins": ["flowtype", "flowtype-errors"],
+  "extends": ["airbnb"],
+  "plugins": ["flowtype-errors"],
   "env": {
     "browser": true,
     "node": true
@@ -25,6 +25,13 @@
     "global-require": 0,
     "class-methods-use-this": 0,
     "spaced-comment": 0,
+    "comma-dangle": ["error", {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore",
+    }]
   },
 
   "settings": {
