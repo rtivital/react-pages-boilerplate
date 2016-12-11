@@ -61,6 +61,8 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addon-knobs": "^1.7.1",
+    "@kadira/storybook-addons": "^1.6.1",
     "autoprefixer": "^6.3.6",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.18.2",
@@ -106,6 +108,7 @@
     "jsonfile": "^2.4.0",
     "lodash-webpack-plugin": "^0.10.3",
     "mkdirp": "^0.5.1",
+    "moment": "^2.17.1",
     "node-sass": "^3.11.1",
     "postcss-loader": "^1.1.0",
     "pre-push": "^0.1.1",
