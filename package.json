@@ -21,9 +21,6 @@
     "storybook:start": "start-storybook -p 3003 -c storybook",
     "storybook:build": "build-storybook -c storybook -o public/storybook"
   },
-  "pre-push": [
-    "test:cache"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rtivital/react-challenge-colorizr.git"
@@ -111,7 +108,6 @@
     "moment": "^2.17.1",
     "node-sass": "^4.0.0",
     "postcss-loader": "^1.2.0",
-    "pre-push": "^0.1.1",
     "react-addons-test-utils": "^15.4.1",
     "react-hot-loader": "^3.0.0-beta.4",
     "request": "^2.79.0",
