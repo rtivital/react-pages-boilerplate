@@ -140,6 +140,6 @@ module.exports = {
   module: { loaders },
   plugins: production ? productionPlugins : developmentPlugins,
 
-  sassResources: './src/styles/resources/**/*.scss',
+  sassResources: ['./src/styles/variables.scss', './src/styles/mixins.scss'],
   postcss: [autoprefixer({ browsers: ['last 4 versions'] })],
 };

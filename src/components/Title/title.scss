@@ -1,0 +1,10 @@
+.title {
+  @include reset-heading;
+  @include center(80rem);
+
+  text-align: center;
+  background-color: $color-blue;
+  color: $color-white;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
