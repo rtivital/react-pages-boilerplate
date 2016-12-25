@@ -3,11 +3,11 @@ import { Route, IndexRoute } from 'react-router';
 import { HotRouter } from 'utils';
 
 import { IndexPage } from 'pages';
-import AppContainer from 'components/AppContainer';
+import { App } from 'components';
 
 const AppRouter = ({ history }) => (
   <HotRouter history={history}>
-    <Route path="/" component={AppContainer}>
+    <Route path="/" component={App}>
       <IndexRoute component={IndexPage} />
     </Route>
   </HotRouter>
