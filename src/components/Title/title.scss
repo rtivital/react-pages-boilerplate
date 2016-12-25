@@ -1,6 +1,5 @@
 .title {
   @include reset-heading;
-  @include center(80rem);
 
   text-align: center;
   background-color: $color-blue;

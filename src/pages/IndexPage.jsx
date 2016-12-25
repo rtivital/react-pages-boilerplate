@@ -1,8 +1,9 @@
 import React from 'react';
-import { Title } from 'components';
+import { Title, ReactLogo } from 'components';
 
 const IndexPage = () => (
   <div className="index-page">
+    <ReactLogo />
     <Title>React Pages Boilerplate</Title>
   </div>
 );
