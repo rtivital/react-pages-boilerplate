@@ -1,107 +1,18 @@
-body{
-  font-family: "XXX", Arial, sans-serif;
-  font-size: 1 px;
-  line-height: 1 px;
-  min-width: 1 px;
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-}
-
-.container{
-  max-width: 1px;
-  margin: 0 auto;
-  padding: 0 1px;
-}
-
-a{
-  text-decoration: none;
-  border: none;
-}
-
-a:hover{
-  text-decoration: none;
-  color: #E5493A;
-}
-
-img{
-  font-size: 0;
-  border: none;
-  outline: none;
-  max-width: 100%;
-  height: auto;
-  vertical-align: top;
-}
-
-button{
-  border: none;
-  outline: none;
-  background-color: transparent;
-}
-
-button:focus{
-  outline: none;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-  &::selection{
-    background-color: #1c93d5;
-    color: #fff;
-  }
-}
-//place holder style
-::-webkit-input-placeholder{
-  color: #426b95;
-}
-::-moz-placeholder{
-  color: #426b95;
-}/* Firefox 19+ */
-:-moz-placeholder{
-  color: #426b95;
-}/* Firefox 18- */
-:-ms-input-placeholder{
-  color: #426b95;
-}
-.show{
-  display: block !important;
-}
-
-input{
-  font-family: "x";
-  outline: none;
-  padding: 0;
-  border: none;
-  font-weight: normal;
-  font-size: 1px;
-}
-
-textarea{
-  outline: none;
-  border: none;
-}
-
-.col{
-  float: left;
-  padding: 0 15px;
+html {
   box-sizing: border-box;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.to-right{
-  float: right; 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-.to-left{
-  float: left;
-}
-
-.clearfix:after{
-  content:"";
-  display:block;
-  clear:both;
+body {
+  font-size: 1.6em;
+  line-height: 1.6;
+  color: $color-black;
 }
