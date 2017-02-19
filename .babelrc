@@ -3,14 +3,12 @@
   "plugins": [
     "lodash",
     "transform-decorators-legacy",
-    "syntax-flow",
-    "transform-flow-strip-types",
 
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
-        "node_modules": "./node_modules",
-      },
+        "node_modules": "./node_modules"
+      }
     }],
 
     ["transform-imports", {
@@ -34,7 +32,7 @@
 
     "development": {
       "plugins": [
-        "react-hot-loader/babel",
+        "react-hot-loader/babel"
       ]
     }
   }
