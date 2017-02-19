@@ -1,4 +1,5 @@
 const path = require('path');
+const getRepositoryName = require('git-repo-name');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
@@ -9,6 +10,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 const pagesBuild = process.env.BUILD === 'pages';
+const repositoryName = pagesBuild && getRepositoryName.sync();
 
 /*********************************** Loaders ***********************************/
 const loaders = [
@@ -126,7 +128,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: pagesBuild ? '/react-challenge-colorizr/' : '/',
+    publicPath: pagesBuild ? `/${repositoryName}/` : '/',
   },
 
   resolve: {
