@@ -10,6 +10,7 @@ const PORT = 3002;
 const serverConfig = {
   contentBase: './public',
   publicPath: '/',
+  stats: { colors: true },
   hot: true,
   historyApiFallback: true,
 };
