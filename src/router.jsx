@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Route, IndexRoute } from 'react-router';
 import { HotRouter } from 'utils';
 
-import { IndexPage } from 'pages';
-import { App } from 'components';
+import IndexPage from 'pages/IndexPage';
+import App from 'components/App/App';
 
 const AppRouter = ({ history }) => (
   <HotRouter history={history}>

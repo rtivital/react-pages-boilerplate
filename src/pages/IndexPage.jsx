@@ -1,11 +1,12 @@
 import React from 'react';
-import { Title, ReactLogo } from 'components';
+import Title from 'components/Title/Title';
+import ReactLogo from 'components/ReactLogo/ReactLogo';
 
-const IndexPage = () => (
-  <div className="index-page">
-    <ReactLogo />
-    <Title>React Pages Boilerplate</Title>
-  </div>
-);
-
-export default IndexPage;
+export default function IndexPage() {
+  return (
+    <div className="index-page">
+      <ReactLogo />
+      <Title>React Pages Boilerplate</Title>
+    </div>
+  );
+}
