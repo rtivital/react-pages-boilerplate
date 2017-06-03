@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 const pagesBuild = process.env.BUILD === 'pages';
@@ -82,6 +83,7 @@ const pluginsBase = [
 const developmentPlugins = [
   ...pluginsBase,
   new webpack.HotModuleReplacementPlugin(),
+  new OpenBrowserPlugin({ url: 'http://localhost:3002' }),
 ];
 
 const productionPlugins = [

@@ -18,5 +18,8 @@ const serverConfig = {
 new WebpackDevServer(webpack(webpackConfig), serverConfig)
   .listen(PORT, 'localhost', err => {
     err && console.error(err);
-    console.log(`Listening at ${chalk.bold.cyan(`http://localhost:${PORT}/`)}`);
+    console.log(`
+      Listening at ${chalk.bold.cyan(`http://localhost:${PORT}/`)}.
+      Browser will be opened automaticly when webpack finish building.
+    `);
   });

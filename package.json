@@ -44,6 +44,7 @@
     "lodash": "^4.17.2",
     "node-uuid": "^1.4.8",
     "normalize.css": "^5.0.0",
+    "open-browser-webpack-plugin": "^0.0.5",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-fastclick": "^2.1.2",
