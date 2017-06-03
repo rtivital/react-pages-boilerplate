@@ -1,7 +1,6 @@
 const path = require('path');
 const getRepositoryName = require('git-repo-name');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -10,42 +9,45 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
+const development = process.env.NODE_ENV === 'development';
 const pagesBuild = process.env.BUILD === 'pages';
 const repositoryName = pagesBuild && getRepositoryName.sync();
 
-/*********************************** Loaders ***********************************/
+const sassResourcesLoader = {
+  loader: 'sass-resources-loader',
+  options: {
+    resources: [
+      path.join(__dirname, './src', './styles/variables.scss'),
+      path.join(__dirname, './src', './styles/mixins.scss'),
+    ],
+  },
+};
+
+const stylesLoaders = [
+  'css-loader',
+  'postcss-loader',
+  'sass-loader',
+  sassResourcesLoader,
+];
+
 const loaders = [
-  { // react-hot is implemented as babel plugin now
+  {
     test: /\.(js|jsx)$/,
-    loader: 'babel',
+    loader: 'babel-loader',
     include: path.join(__dirname, 'src'),
     exclude: /node_modules/,
   },
 
-  { // used for all project files and some dependencies
-    test: /\.scss$/,
-    loader: production
-      ? ExtractTextPlugin.extract(['css', 'postcss', 'sass', 'sass-resources'])
-      : ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap', 'sass-resources'].join('!'),
-    include: path.join(__dirname, 'src'),
+  {
+    test: /\.(css|scss)$/,
+    loader: development
+      ? ['style-loader', ...stylesLoaders]
+      : ExtractTextPlugin.extract({ fallback: 'style-loader', use: stylesLoaders }),
   },
 
-  { // used for dependencies that don't support sass
-    test: /\.css$/,
-    loaders: ['style', 'css', 'postcss'],
-  },
-
-  { // svg sprites generated only for icons
-    test: /\.svg$/,
-    loader: `svg-sprite?${JSON.stringify({ name: '[hash]', prefixize: true })}`,
-    include: path.join(__dirname, 'src/ui/Icon'),
-  },
-
-  { // other svg images will processed as normal
-    test: /\.svg$/,
-    loader: 'file',
-    include: path.join(__dirname, 'src'),
-    exclude: path.join(__dirname, 'src/ui/Icon'),
+  {
+    test: /\.(svg|png|jpg|gif|woff|woff2|otf|ttf|eot)$/,
+    loader: 'file-loader',
   },
 ];
 
@@ -88,7 +90,7 @@ const developmentPlugins = [
 
 const productionPlugins = [
   ...pluginsBase,
-  new ExtractTextPlugin('style.css'),
+  new ExtractTextPlugin('[name].css'),
   new LodashModuleReplacementPlugin(),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.DedupePlugin(),
@@ -127,16 +129,13 @@ module.exports = {
   },
 
   resolve: {
-    root: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'node_modules'),
+    modules: [
+      path.join(__dirname, 'src'),
+      'node_modules',
     ],
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.json'],
   },
 
   module: { loaders },
   plugins: production ? productionPlugins : developmentPlugins,
-
-  sassResources: ['./src/styles/variables.scss', './src/styles/mixins.scss'],
-  postcss: [autoprefixer({ browsers: ['last 4 versions'] })],
 };
