@@ -107,13 +107,6 @@ const productionPlugins = [
   }),
 ];
 
-module.exports.loaders = loaders;
-module.exports.plugins = {
-  base: pluginsBase,
-  development: developmentPlugins,
-  production: productionPlugins,
-};
-
 module.exports = {
   devtool: production ? 'cheap-module-source-map' : 'eval',
 
