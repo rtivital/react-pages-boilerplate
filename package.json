@@ -14,7 +14,7 @@
     "lint:eslint": "eslint src --ext .js --ext .jsx",
     "lint:eslint-fix": "eslint src --ext .js --ext .jsx --fix",
     "lint:eslint-cache": "eslint src --ext .js --ext .jsx --cache",
-    "lint:stylelint": "stylelint **/*.scss",
+    "lint:styles": "stylelint 'src/**/*.scss' --cache",
     "pages:build": "npm run clean && npm run storybook:build && cross-env NODE_ENV=production BUILD=pages webpack --progress --colors",
     "pages:deploy": "npm run pages:build && gh-pages -d public",
     "storybook:start": "start-storybook -p 3003 -c storybook",
