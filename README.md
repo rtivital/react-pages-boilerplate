@@ -1,4 +1,5 @@
 # React pages boilerplate
+![Cover](cover.png)
 This boilerplate introduces a simple way for developing serverless React applications, which are perfect for serving from [Github Pages](https://pages.github.com/).
 
 ## Technologies
