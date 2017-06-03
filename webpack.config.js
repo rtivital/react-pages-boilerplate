@@ -93,7 +93,6 @@ const productionPlugins = [
   new ExtractTextPlugin('[name].css'),
   new LodashModuleReplacementPlugin(),
   new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({
     beautify: false,
     comments: false,
