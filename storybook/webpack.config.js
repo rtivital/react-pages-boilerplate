@@ -85,7 +85,6 @@ module.exports = {
   plugins: production ? productionPlugins : developmentPlugins,
 
   sassResources: [
-    './src/styles/open-color.scss',
     './src/styles/variables.scss',
     './src/styles/mixins.scss',
   ],
