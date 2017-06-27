@@ -7,7 +7,8 @@
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
-        "node_modules": "./node_modules"
+        "node_modules": "./node_modules",
+        "storybook": "./storybook"
       }
     }],
 
