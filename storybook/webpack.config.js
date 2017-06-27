@@ -42,7 +42,7 @@ const pluginsBase = [
 
 const developmentPlugins = [
   ...pluginsBase,
-  new webpack.HotModuleReplacementPlugin(),
+  // new webpack.HotModuleReplacementPlugin(),
   new OpenBrowserWebpackPlugin({ url: 'http://localhost:3003' }),
 ];
 
