@@ -1,7 +1,7 @@
 {
-  "name": "react-challenge-colorizr",
+  "name": "react-pages-boilerplate",
   "version": "1.0.0",
-  "description": "Boilerplate for second React Challenge",
+  "description": "Simple boilerplate for working with React, redux, react-router and Github Pages",
   "main": "index.js",
   "scripts": {
     "test": "npm run lint:eslint && npm run lint:stylelint && npm run test:tape",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rtivital/react-challenge-colorizr.git"
+    "url": "git+https://github.com/rtivital/react-pages-boilerplate.git"
   },
   "keywords": [
     "react",
@@ -34,9 +34,9 @@
   "author": "Vitaly Rtishchev <rtivital@gmail.com> (http://github.com/rtivital)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rtivital/react-challenge-colorizr/issues"
+    "url": "https://github.com/rtivital/react-pages-boilerplate/issues"
   },
-  "homepage": "https://github.com/rtivital/react-challenge-colorizr#readme",
+  "homepage": "https://github.com/rtivital/react-pages-boilerplate#readme",
   "dependencies": {
     "axios": "^0.16.2",
     "breakpoint-sass": "^2.7.1",
