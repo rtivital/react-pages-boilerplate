@@ -3,7 +3,6 @@ const webpack = require('@kadira/storybook/node_modules/webpack');
 const autoprefixer = require('autoprefixer');
 const OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin');
 
-const production = process.env.NODE_ENV === 'production';
 const loaders = [
   {
     test: /\.(js|jsx)$/,
@@ -31,37 +30,14 @@ const loaders = [
   },
 ];
 
-
-const pluginsBase = [
+const plugins = [
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
     },
   }),
-];
-
-const developmentPlugins = [
-  ...pluginsBase,
   // new webpack.HotModuleReplacementPlugin(),
   new OpenBrowserWebpackPlugin({ url: 'http://localhost:3003' }),
-];
-
-const productionPlugins = [
-  ...pluginsBase,
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    beautify: false,
-    comments: false,
-    compress: {
-      sequences: true,
-      booleans: true,
-      loops: true,
-      unused: false,
-      warnings: false,
-      drop_console: true,
-      unsafe: true,
-    },
-  }),
 ];
 
 module.exports = {
@@ -82,11 +58,12 @@ module.exports = {
   },
 
   module: { loaders },
-  plugins: production ? productionPlugins : developmentPlugins,
+  plugins,
 
   sassResources: [
     './src/styles/variables.scss',
     './src/styles/mixins.scss',
   ],
+
   postcss: [autoprefixer({ browsers: ['last 4 versions'] })],
 };
