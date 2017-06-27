@@ -4,7 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 import { HotRouter } from 'utils';
 
 import IndexPage from 'pages/IndexPage';
-import App from 'components/App/App';
+import App from 'components/App';
 
 const AppRouter = ({ history }) => (
   <HotRouter history={history}>
