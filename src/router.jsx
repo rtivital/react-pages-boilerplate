@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Route, IndexRoute } from 'react-router';
 import { HotRouter } from 'utils';
 
-import IndexPage from 'pages/IndexPage';
+import HomePage from 'components/routes/home/HomePage';
 import App from 'components/App';
 
 const AppRouter = ({ history }) => (
   <HotRouter history={history}>
     <Route path="/" component={App}>
-      <IndexRoute component={IndexPage} />
+      <IndexRoute component={HomePage} />
     </Route>
   </HotRouter>
 );
