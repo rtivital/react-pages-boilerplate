@@ -54,7 +54,6 @@ const loaders = [
 // Plugins used in all builds
 const pluginsBase = [
   new HtmlWebpackPlugin({
-    title: 'React Github Pages Boilerplate',
     template: 'template.ejs',
   }),
 
