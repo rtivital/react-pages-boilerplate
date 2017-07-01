@@ -1,7 +1,6 @@
 const path = require('path');
-const getRepositoryName = require('git-repo-name');
+const getRepositoryName = require('git-repo-name').sync;
 const webpack = require('webpack');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
@@ -9,9 +8,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
-const development = process.env.NODE_ENV === 'development';
-const pagesBuild = process.env.BUILD === 'pages';
-const repositoryName = pagesBuild && getRepositoryName.sync();
 
 const sassResourcesLoader = {
   loader: 'sass-resources-loader',
@@ -40,9 +36,9 @@ const loaders = [
 
   {
     test: /\.(css|scss)$/,
-    loader: development
-      ? ['style-loader', ...stylesLoaders]
-      : ExtractTextPlugin.extract({ fallback: 'style-loader', use: stylesLoaders }),
+    loader: production
+      ? ExtractTextPlugin.extract({ fallback: 'style-loader', use: stylesLoaders })
+      : ['style-loader', ...stylesLoaders],
   },
 
   {
@@ -123,7 +119,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: pagesBuild ? `/${repositoryName}/` : '/',
+    publicPath: process.env.BUILD === 'pages' ? `/${getRepositoryName()}/` : '/',
   },
 
   resolve: {
