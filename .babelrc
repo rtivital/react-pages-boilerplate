@@ -9,13 +9,6 @@
         "node_modules": "./node_modules",
         "storybook": "./storybook"
       }
-    }],
-
-    ["transform-imports", {
-      "react-router": {
-        "transform": "react-router/lib/${member}",
-        "preventFullImport": true
-      }
     }]
   ],
 
