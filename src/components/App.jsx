@@ -8,5 +8,5 @@ export default function App({ children }) {
 }
 
 App.propTypes = {
-  children: PropTypes.any.isRequired,
+  children: PropTypes.element.isRequired,
 };
