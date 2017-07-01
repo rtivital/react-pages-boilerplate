@@ -17,8 +17,8 @@ const sassResourcesLoader = {
   loader: 'sass-resources-loader',
   options: {
     resources: [
-      path.join(__dirname, './src', './styles/variables.scss'),
-      path.join(__dirname, './src', './styles/mixins.scss'),
+      './src/styles/variables.scss',
+      './src/styles/mixins.scss',
     ],
   },
 };
