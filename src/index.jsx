@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { hashHistory } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 
 import 'react-fastclick';
@@ -16,7 +15,7 @@ const rootElement = document.getElementById('app');
 render(
   <AppContainer>
     <Provider store={store}>
-      <AppRouter history={hashHistory} />
+      <AppRouter />
     </Provider>
   </AppContainer>,
   rootElement
@@ -29,7 +28,7 @@ if (module.hot) {
     render(
       <AppContainer>
         <Provider store={store}>
-          <NextAppRouter history={hashHistory} />
+          <NextAppRouter />
         </Provider>
       </AppContainer>,
       rootElement
