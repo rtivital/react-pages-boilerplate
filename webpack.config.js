@@ -9,21 +9,19 @@ const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
 
-const sassResourcesLoader = {
-  loader: 'sass-resources-loader',
-  options: {
-    resources: [
-      './src/styles/variables.scss',
-      './src/styles/mixins.scss',
-    ],
-  },
-};
-
 const stylesLoaders = [
   'css-loader',
   'postcss-loader',
   'sass-loader',
-  sassResourcesLoader,
+  {
+    loader: 'sass-resources-loader',
+    options: {
+      resources: [
+        './src/styles/variables.scss',
+        './src/styles/mixins.scss',
+      ],
+    },
+  },
 ];
 
 const loaders = [
