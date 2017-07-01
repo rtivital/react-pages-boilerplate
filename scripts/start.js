@@ -1,11 +1,9 @@
 /* eslint-disable no-console */
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const webpackConfig = require('../webpack.config');
 const chalk = require('chalk');
-
-
-const PORT = 3002;
+const webpackConfig = require('../webpack.config');
+const SETTINGS = require('../settings');
 
 const serverConfig = {
   contentBase: './public',
@@ -16,10 +14,13 @@ const serverConfig = {
 };
 
 new WebpackDevServer(webpack(webpackConfig), serverConfig)
-  .listen(PORT, 'localhost', err => {
-    err && console.error(err);
-    console.log(`
-      Listening at ${chalk.bold.cyan(`http://localhost:${PORT}/`)}.
-      Browser will be opened automaticly when webpack finish building.
-    `);
+  .listen(SETTINGS.PORT, 'localhost', (error) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(`
+        Listening at ${chalk.bold.cyan(`http://localhost:${SETTINGS.PORT}/`)}.
+        Browser will be opened automaticly when webpack finish building.
+      `);
+    }
   });

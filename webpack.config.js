@@ -6,6 +6,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -80,7 +81,7 @@ const pluginsBase = [
 const developmentPlugins = [
   ...pluginsBase,
   new webpack.HotModuleReplacementPlugin(),
-  new OpenBrowserPlugin({ url: 'http://localhost:3002' }),
+  new OpenBrowserPlugin({ url: `http://localhost:${SETTINGS.PORT}` }),
 ];
 
 const productionPlugins = [
@@ -110,7 +111,7 @@ module.exports = {
     ? ['babel-polyfill', './src/index']
     : [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3002',
+      `webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
       'webpack/hot/only-dev-server',
       'babel-polyfill',
       './src/index',
