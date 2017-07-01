@@ -3,7 +3,6 @@ const getRepositoryName = require('git-repo-name').sync;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const SETTINGS = require('./settings');
@@ -87,7 +86,6 @@ const developmentPlugins = [
 const productionPlugins = [
   ...pluginsBase,
   new ExtractTextPlugin('[name].css'),
-  new LodashModuleReplacementPlugin(),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     beautify: false,
