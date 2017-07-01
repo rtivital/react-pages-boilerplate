@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import getReduxDevTools from 'utils/getReduxDevTools';
 import rootReducer from 'modules';
 
 const middlewares = [
@@ -7,16 +8,15 @@ const middlewares = [
 ];
 
 export default function configureStore(initialState) {
-  // Prevent redux devTools initialization in production
-  const store = createStore(rootReducer, initialState, compose(
-    applyMiddleware(...middlewares),
-    window.devToolsExtension && process.env.NODE_ENV === 'development'
-      ? window.devToolsExtension()
-      : f => f
-  ));
+  const store = createStore(
+    rootReducer,
+    initialState,
+    compose(applyMiddleware(...middlewares), getReduxDevTools())
+  );
 
+  // Enable Webpack hot module replacement for reducers
+  // this will be cut out in production
   if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
     module.hot.accept('./modules', () => {
       const nextRootReducer = require('./modules/index');
 
