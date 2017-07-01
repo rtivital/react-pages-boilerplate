@@ -90,12 +90,11 @@ module.exports = {
   devtool: production ? 'cheap-module-source-map' : 'eval',
 
   entry: production
-    ? ['babel-polyfill', './src/index']
+    ? './src/index'
     : [
       'react-hot-loader/patch',
       `webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
       'webpack/hot/only-dev-server',
-      'babel-polyfill',
       './src/index',
     ],
 
