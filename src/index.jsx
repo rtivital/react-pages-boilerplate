@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 
-import 'react-fastclick';
 import 'styles';
 
 import configureStore from './store';
