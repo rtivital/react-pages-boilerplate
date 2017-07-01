@@ -20,13 +20,6 @@
     "type": "git",
     "url": "git+https://github.com/rtivital/react-pages-boilerplate.git"
   },
-  "keywords": [
-    "react",
-    "react-challenge",
-    "react-router",
-    "redux",
-    "react-redux"
-  ],
   "author": "Vitaly Rtishchev <rtivital@gmail.com> (http://github.com/rtivital)",
   "license": "MIT",
   "bugs": {
