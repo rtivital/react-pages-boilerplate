@@ -47,31 +47,17 @@ const loaders = [
   },
 ];
 
-// Plugins used in all builds
 const pluginsBase = [
-  new HtmlWebpackPlugin({
-    template: 'template.ejs',
-  }),
+  new HtmlWebpackPlugin({ template: 'template.ejs' }),
 
   new FaviconsWebpackPlugin({
     logo: './favicon.png',
-    background: '#ffeeee',
-    icons: {
-      android: false,
-      appleIcon: false,
-      appleStartup: false,
-      coast: false,
-      favicons: true,
-      firefox: false,
-      opengraph: false,
-      twitter: false,
-      yandex: false,
-      windows: false,
-    },
+    background: SETTINGS.THEME_COLOR,
+    icons: SETTINGS.FAVICONS,
   }),
 
   new webpack.DefinePlugin({
-    'process.env': { // build is used for gh-pages
+    'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
     },
   }),
