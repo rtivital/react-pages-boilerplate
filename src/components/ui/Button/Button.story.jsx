@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import CenteringDecorator from 'storybook/decorators/CenteringDecorator.jsx';
+import CenteringDecorator from 'storybook/decorators/CenteringDecorator';
 import Button from './Button';
 
 storiesOf('UI/Button', module)
