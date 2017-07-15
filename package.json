@@ -67,7 +67,7 @@
     "eslint-plugin-import": "2.6.1",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.1.0",
-    "extract-text-webpack-plugin": "^2.1.2",
+    "extract-text-webpack-plugin": "^3.0.0",
     "favicons-webpack-plugin": "0.0.7",
     "file-loader": "^0.11.2",
     "gh-pages": "^1.0.0",
@@ -88,7 +88,7 @@
     "tap-spec": "^4.1.1",
     "tape": "^4.7.0",
     "tape-catch": "^1.0.6",
-    "webpack": "^2.6.1",
+    "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"
   }
 }
