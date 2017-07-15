@@ -4,7 +4,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 
 ## Technologies
 * [Yarn](https://yarnpkg.com/) as package manager, [npm](https://www.npmjs.com/) is fine too
-* [Webpack@2](https://webpack.github.io/) as module bundler
+* [Webpack@3](https://webpack.github.io/) as module bundler
 * [Babel](https://babeljs.io/) for js and jsx transpiling
 * [react-hot-loader@3](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
 * [Eslint](http://eslint.org/) and [Stylelint](http://stylelint.io/) for linting
