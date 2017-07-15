@@ -15,7 +15,7 @@
   "env": {
     "production": {
       "presets": ["react-optimize"],
-      "plugins": ["transform-runtime"]
+      "plugins": ["transform-runtime", "ramda"]
     }
   }
 }
