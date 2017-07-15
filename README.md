@@ -21,3 +21,4 @@ This boilerplate introduces a simple way for developing serverless React applica
 * [React Router Redux](https://github.com/reactjs/react-router-redux)
 * [Redux Actions](https://github.com/acdlite/redux-actions)
 * [Axios](https://github.com/mzabriskie/axios)
+* [Ramda](http://ramdajs.com/) as an utility library
