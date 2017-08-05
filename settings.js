@@ -1,5 +1,5 @@
 module.exports = {
-   // port where app should be started
+  // port where app should be started
   PORT: 3000,
 
   // type of favicons to generate, WARNING: dramaticly decreases build speed, use wisely
