@@ -6,17 +6,17 @@
     "node": true
   },
   "rules": {
-    "react/no-danger": 0,
-    "import/no-extraneous-dependencies": 0,
-    "arrow-parens": 0,
-    "global-require": 0,
-    "spaced-comment": 0,
+    "react/no-danger": "off",
+    "import/no-extraneous-dependencies": "off",
+    "arrow-parens": "off",
+    "global-require": "off",
+    "spaced-comment": "off",
     "comma-dangle": ["error", {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "ignore",
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore",
     }]
   },
 
