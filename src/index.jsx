@@ -21,8 +21,7 @@ render(
   rootElement
 );
 
-// Enable hot updates with react-hot-loader@3
-// this will be cut out in production
+// Enable hot updates with react-hot-loader@3, this will be cut out in production
 if (module.hot) {
   module.hot.accept('./router', () => {
     const NextAppRouter = require('./router').default;
