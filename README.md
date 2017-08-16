@@ -15,7 +15,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 ## Included libraries
 * [React](https://github.com/facebook/react)
 * [Redux](https://github.com/reactjs/redux)
-* [React Router@3](https://github.com/ReactTraining/react-router) with hashHistory (perfectly suits Github Pages environment)
+* [React Router@4](https://github.com/ReactTraining/react-router) using hashHistory (perfectly suits Github Pages environment)
 * [React Redux](https://github.com/reactjs/react-redux)
 * [React Router Redux](https://github.com/reactjs/react-router-redux)
 * [Redux Actions](https://github.com/acdlite/redux-actions)
