@@ -64,6 +64,7 @@ const pluginsBase = [
 const developmentPlugins = [
   ...pluginsBase,
   new webpack.HotModuleReplacementPlugin(),
+  new webpack.NamedModulesPlugin(),
   new OpenBrowserPlugin({ url: `http://localhost:${SETTINGS.PORT}` }),
 ];
 
