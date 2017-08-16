@@ -36,7 +36,6 @@ const plugins = [
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
     },
   }),
-  // new webpack.HotModuleReplacementPlugin(),
   new OpenBrowserWebpackPlugin({ url: 'http://localhost:3003' }),
 ];
 
