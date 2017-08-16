@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store';
-import AppRouter from './router';
+import App from './components/App';
 
 const store = configureStore();
 const rootElement = document.getElementById('app');
@@ -15,7 +15,7 @@ const rootElement = document.getElementById('app');
 render(
   <AppContainer>
     <Provider store={store}>
-      <AppRouter />
+      <App />
     </Provider>
   </AppContainer>,
   rootElement
@@ -23,13 +23,13 @@ render(
 
 // Enable hot updates with react-hot-loader@3, this will be cut out in production
 if (module.hot) {
-  module.hot.accept('./router', () => {
-    const NextAppRouter = require('./router').default;
+  module.hot.accept('./components/App', () => {
+    const NextApp = require('./components/App').default;
 
     render(
       <AppContainer>
         <Provider store={store}>
-          <NextAppRouter />
+          <NextApp />
         </Provider>
       </AppContainer>,
       rootElement
