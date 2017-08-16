@@ -3,7 +3,6 @@
 This boilerplate introduces a simple way for developing serverless React applications, which are perfect for serving from [Github Pages](https://pages.github.com/).
 
 ## Technologies
-* [Yarn](https://yarnpkg.com/) as package manager, [npm](https://www.npmjs.com/) is fine too
 * [Webpack@3](https://webpack.github.io/) as module bundler
 * [Babel](https://babeljs.io/) for js and jsx transpiling
 * [react-hot-loader@3](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
