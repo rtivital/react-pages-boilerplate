@@ -100,7 +100,7 @@ module.exports = {
     ],
 
   output: {
-    path: path.join(__dirname, 'public'),
+    path: SETTINGS.PUBLIC_PATH,
     filename: 'bundle.js',
     publicPath: process.env.BUILD === 'pages' ? `/${getRepositoryName()}/` : '/',
   },

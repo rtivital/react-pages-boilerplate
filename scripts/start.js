@@ -6,7 +6,7 @@ const webpackConfig = require('../webpack.config');
 const SETTINGS = require('../settings');
 
 const serverConfig = {
-  contentBase: './public',
+  contentBase: SETTINGS.PUBLIC_PATH,
   publicPath: '/',
   stats: { colors: true },
   hot: true,
