@@ -19,7 +19,8 @@ new WebpackDevServer(webpack(webpackConfig), serverConfig)
       console.error(error);
     } else {
       console.log(`
-        Listening at ${chalk.bold.cyan(`http://localhost:${SETTINGS.PORT}/`)}. Serving files from ${chalk.bold.cyan(SETTINGS.PUBLIC_PATH)}
+        Listening at ${chalk.bold.cyan(`http://localhost:${SETTINGS.PORT}/`)}.
+        Serving files from ${chalk.bold.cyan(SETTINGS.PUBLIC_PATH)}.
         Browser will be opened automaticly when webpack finish building.
       `);
     }
