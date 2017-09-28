@@ -8,7 +8,6 @@ This boilerplate introduces a simple way for developing serverless React applica
 * [react-hot-loader@3](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
 * [Eslint](http://eslint.org/) and [Stylelint](http://stylelint.io/) for linting
 * [Tape](https://github.com/substack/tape) and [Enzyme](http://airbnb.io/enzyme/) for testing
-* [Storybook](https://getstorybook.io/) for isolated UI testing and presentation
 * [Sass](http://sass-lang.com/), [PostCSS](http://postcss.org/) and [Autoprefixer](https://github.com/postcss/autoprefixer) for styles processing
 
 
