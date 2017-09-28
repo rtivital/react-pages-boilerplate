@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const config = require('../webpack.config');
 
 module.exports = function build() {
-  console.log(chalk.cyan.bold`Building bundle`);
+  console.log(chalk.yellow`Building bundle`);
 
   return new Promise((resolve, reject) => {
     webpack(config).run((err) => {
