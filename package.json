@@ -7,12 +7,11 @@
     "test": "tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-spec",
     "start": "cross-env NODE_ENV=development node scripts/start",
     "build": "cross-env NODE_ENV=production webpack --progress --colors",
-    "deploy": "npm run pages:build && gh-pages -d public",
+    "deploy": "cross-env NODE_ENV=production BUILD=pages node scripts/deploy",
     "clean": "rimraf public",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint src --ext .js --ext .jsx --cache",
-    "lint:scss": "stylelint 'src/**/*.scss' --cache",
-    "pages:build": "npm run clean && cross-env NODE_ENV=production BUILD=pages webpack --progress --colors"
+    "lint:scss": "stylelint 'src/**/*.scss' --cache"
   },
   "repository": {
     "type": "git",
