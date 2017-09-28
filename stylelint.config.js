@@ -35,5 +35,19 @@ module.exports = {
     'media-feature-colon-space-before': 'never',
     'media-feature-colon-space-after': 'always',
     'at-rule-no-unknown': null,
+
+    // scss plugin – https://www.npmjs.com/package/stylelint-scss
+    'scss/at-else-closing-brace-newline-after': 'always-last-in-chain',
+    'scss/at-else-empty-line-before': 'never',
+    'scss/at-extend-no-missing-placeholder': true,
+    'scss/at-function-parentheses-space-before': 'always',
+    'scss/at-mixin-argumentless-call-parentheses': 'always',
+    'scss/at-rule-no-unknown': true,
+    'scss/dollar-variable-colon-space-after': 'always-single-line',
+    'scss/dollar-variable-colon-space-before': 'never',
+    'scss/double-slash-comment-empty-line-before': 'always',
+    'scss/declaration-nested-properties': 'never',
+    'scss/operator-no-unspaced': true,
+    'scss/selector-no-redundant-nesting-selector': true,
   },
 };
