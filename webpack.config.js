@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
@@ -70,6 +71,7 @@ const developmentPlugins = [
 
 const productionPlugins = [
   ...pluginsBase,
+  new LodashModuleReplacementPlugin(),
   new ExtractTextPlugin('[name].css'),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
