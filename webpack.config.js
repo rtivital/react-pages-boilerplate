@@ -9,9 +9,15 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
+const pagesBuild = process.env.BUILD === 'pages';
 
 const stylesLoaders = [
-  'css-loader',
+  {
+    loader: 'css-loader',
+    options: {
+      minimize: production,
+    },
+  },
   'postcss-loader',
   'sass-loader',
   {
@@ -104,14 +110,11 @@ module.exports = {
   output: {
     path: SETTINGS.PUBLIC_PATH,
     filename: 'bundle.js',
-    publicPath: process.env.BUILD === 'pages' ? `/${getRepositoryName()}/` : '/',
+    publicPath: pagesBuild ? `/${getRepositoryName()}/` : '/',
   },
 
   resolve: {
-    modules: [
-      path.join(__dirname, 'src'),
-      'node_modules',
-    ],
+    modules: [path.join(__dirname, 'src'), 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],
   },
 
