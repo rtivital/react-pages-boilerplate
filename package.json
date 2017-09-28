@@ -90,6 +90,7 @@
     "style-loader": "^0.18.2",
     "stylelint": "^8.1.1",
     "stylelint-config-standard": "^17.0.0",
+    "stylelint-scss": "^2.1.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0",
     "tape-catch": "^1.0.6",
