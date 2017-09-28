@@ -1,16 +1,6 @@
 {
-  "presets": ["react", ["es2015", { "loose" : true }], "stage-0"],
-  "plugins": [
-    "transform-decorators-legacy",
-
-    ["module-resolver", {
-      "root": ["./src"],
-      "alias": {
-        "node_modules": "./node_modules",
-        "storybook": "./storybook"
-      }
-    }]
-  ],
+  "presets": ["react", ["es2015", { "loose" : true, "modules": false }], "stage-0"],
+  "plugins": ["transform-decorators-legacy"],
 
   "env": {
     "production": {
