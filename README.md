@@ -13,7 +13,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 
 
 ## Preinstalled and configured libraries
-* [react](https://github.com/facebook/react)
+* [react@16](https://github.com/facebook/react)
 * [redux](https://github.com/reactjs/redux)
 * [react-router@4](https://github.com/ReactTraining/react-router) using hashHistory (perfectly suits Github Pages environment)
 * [react-redux](https://github.com/reactjs/react-redux)
