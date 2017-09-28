@@ -9,7 +9,7 @@ export default function HomePage() {
       </h1>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Button theme="blue">Click me!</Button>
+        <Button theme="blue">Click me!!</Button>
       </div>
     </div>
   );

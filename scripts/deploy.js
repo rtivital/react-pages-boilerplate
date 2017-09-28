@@ -1,19 +1,12 @@
 /* eslint-disable no-console */
-const ghPages = require('gh-pages');
+const bluebird = require('bluebird');
+const publish = bluebird.promisify(require('gh-pages').publish);
 const chalk = require('chalk');
 const build = require('./build');
 const SETTINGS = require('../settings');
 
-const logError = (error) => console.error(chalk.red.bold`✗ Error occured while deploying to Github Pages:`, '\n', error);
-
-build().then(() => {
-  console.log(chalk.yellow`Deploying to Github Pages...`);
-
-  ghPages.publish(SETTINGS.PUBLIC_PATH, (error) => {
-    if (error) {
-      logError(error);
-    } else {
-      console.log(chalk.green.bold`✔ Successfully deployed to Github pages!`);
-    }
-  });
-}).catch(logError);
+build()
+  .then(() => console.log(chalk.yellow`Deploying to Github Pages...`))
+  .then(() => publish(SETTINGS.PUBLIC_PATH))
+  .then(() => console.log(chalk.green.bold`✔ Successfully deployed to Github pages!`))
+  .catch((error) => console.error(chalk.red.bold`✗ Error occured while deploying to Github Pages:`, '\n', error));
