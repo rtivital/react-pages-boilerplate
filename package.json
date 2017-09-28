@@ -6,15 +6,13 @@
   "scripts": {
     "test": "tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-spec",
     "start": "cross-env NODE_ENV=development node scripts/start",
-    "build": "cross-env NODE_ENV=production webpack --progress --colors && npm run storybook:build",
+    "build": "cross-env NODE_ENV=production webpack --progress --colors",
     "deploy": "npm run pages:build && gh-pages -d public",
     "clean": "rimraf public",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint src --ext .js --ext .jsx --cache",
     "lint:scss": "stylelint 'src/**/*.scss' --cache",
-    "pages:build": "npm run clean && npm run storybook:build && cross-env NODE_ENV=production BUILD=pages webpack --progress --colors",
-    "storybook:start": "start-storybook -p 3003 -c storybook",
-    "storybook:build": "build-storybook -c storybook -o public/storybook"
+    "pages:build": "npm run clean && cross-env NODE_ENV=production BUILD=pages webpack --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -42,8 +40,6 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.35.3",
-    "@kadira/storybook-addons": "^1.6.1",
     "autoprefixer": "^7.1.4",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
