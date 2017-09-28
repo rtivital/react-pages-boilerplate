@@ -13,14 +13,14 @@
 .button--white {
   color: $color-black;
   background-color: $color-white;
-  border: .1rem solid $color-gray;
+  border: .1rem solid $color-gray-600;
 
   &:hover {
-    background-color: $color-light-gray;
+    background-color: $color-gray-200;
   }
 
   &:active {
-    background-color: $color-gray;
+    background-color: $color-gray-400;
   }
 }
 
