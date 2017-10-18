@@ -11,7 +11,7 @@
 }
 
 .button--white {
-  color: $color-black;
+  color: $color-gray-900;
   background-color: $color-white;
   border: .1rem solid $color-gray-600;
 
@@ -26,15 +26,15 @@
 
 .button--blue {
   color: $color-white;
-  background-color: $color-blue;
+  background-color: $color-blue-500;
   font-weight: bold;
 
   &:hover,
   &:focus {
-    background-color: darken($color-blue, 7%);
+    background-color: $color-blue-700;
   }
 
   &:active {
-    background-color: darken($color-blue, 14%);
+    background-color: $color-blue-900;
   }
 }
