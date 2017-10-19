@@ -18,3 +18,8 @@ This boilerplate introduces a simple way for developing serverless React applica
 * [react-redux](https://github.com/reactjs/react-redux)
 * [axios](https://github.com/mzabriskie/axios)
 * [ramda](http://ramdajs.com/) and [lodash](https://lodash.com/) as an utility libraries (unused parts will be cut off with babel and webpack plugins)
+
+## Getting started
+* Clone `git clone https://github.com/rtivital/react-pages-boilerplate` or [download](https://github.com/rtivital/react-pages-boilerplate/archive/master.zip) this repository.
+* Instal dependencies `npm install`
+* Run the project with `npm start`
