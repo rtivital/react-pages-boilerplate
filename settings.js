@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   // port where app should be started
-  PORT: 3000,
+  PORT: 3823,
 
   // type of favicons to generate, WARNING: dramaticly decreases build speed, use wisely
   FAVICONS: {
