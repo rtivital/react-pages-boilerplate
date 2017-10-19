@@ -4,10 +4,11 @@
   "description": "Simple boilerplate for working with React, redux, react-router and Github Pages",
   "main": "index.js",
   "scripts": {
-    "test": "tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-spec",
+    "test":
+      "tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-spec",
     "start": "cross-env NODE_ENV=development node scripts/start",
     "build": "cross-env NODE_ENV=production webpack --progress --colors",
-    "deploy": "cross-env NODE_ENV=production BUILD=pages node scripts/deploy",
+    "deploy": "npm run clean && cross-env NODE_ENV=production BUILD=pages node scripts/deploy",
     "clean": "rimraf public",
     "clean:git": "node scripts/clean-git",
     "lint": "npm run lint:js && npm run lint:scss",
