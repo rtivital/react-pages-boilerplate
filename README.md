@@ -33,6 +33,6 @@ Run the project
 
 `npm start`
 
-* Init new Github repository to enable Github Pages publishing (this will remove .git folder attached to react-pages-boilerplate) and follow [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+Init new Github repository to enable Github Pages publishing (this will remove .git folder attached to react-pages-boilerplate) and follow [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
 
 `npm run clean:git`
