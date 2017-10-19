@@ -90,6 +90,7 @@
     "tape": "^4.8.0",
     "tape-catch": "^1.0.6",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.2"
+    "webpack-dev-server": "^2.9.2",
+    "yesno": "0.0.1"
   }
 }
