@@ -53,13 +53,7 @@ const loaders = [
 
 const pluginsBase = [
   new HtmlWebpackPlugin({ template: 'template.ejs' }),
-
-  new FaviconsWebpackPlugin({
-    logo: './favicon.png',
-    background: SETTINGS.THEME_COLOR,
-    icons: SETTINGS.FAVICONS,
-  }),
-
+  new FaviconsWebpackPlugin(SETTINGS.FAVICONS),
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
