@@ -14,9 +14,7 @@ const pagesBuild = process.env.BUILD === 'pages';
 const stylesLoaders = [
   {
     loader: 'css-loader',
-    options: {
-      minimize: production,
-    },
+    options: { minimize: production },
   },
   'postcss-loader',
   'sass-loader',
@@ -24,9 +22,9 @@ const stylesLoaders = [
     loader: 'sass-resources-loader',
     options: {
       resources: [
-        './src/styles/colors.scss',
-        './src/styles/variables.scss',
-        './src/styles/mixins.scss',
+        path.join(__dirname, 'src/styles/colors.scss'),
+        path.join(__dirname, 'src/styles/variables.scss'),
+        path.join(__dirname, 'src/styles/mixins.scss'),
       ],
     },
   },
