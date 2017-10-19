@@ -23,3 +23,4 @@ This boilerplate introduces a simple way for developing serverless React applica
 * Clone `git clone https://github.com/rtivital/react-pages-boilerplate` or [download](https://github.com/rtivital/react-pages-boilerplate/archive/master.zip) this repository.
 * Instal dependencies `npm install`
 * Run the project with `npm start`
+* To init new Github repository run `npm run clean:git` (this will remove .git folder attached to react-pages-boilerplate) and follow [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
