@@ -20,19 +20,19 @@ This boilerplate introduces a simple way for developing serverless React applica
 * [ramda](http://ramdajs.com/) and [lodash](https://lodash.com/) as an utility libraries (unused parts will be cut off with babel and webpack plugins)
 
 ## Getting started
-Clone or [download](https://github.com/rtivital/react-pages-boilerplate/archive/master.zip) this repository.
+* Clone or [download](https://github.com/rtivital/react-pages-boilerplate/archive/master.zip) this repository.
 
 `git clone https://github.com/rtivital/react-pages-boilerplate`
 
-Instal dependencies
+* Instal dependencies
 
 `npm install`
 
 
-Run the project
+* Run the project
 
 `npm start`
 
-Init new Github repository to enable Github Pages publishing (this will remove .git folder attached to react-pages-boilerplate) and follow [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+* Init new Github repository to enable Github Pages publishing (this will remove .git folder attached to react-pages-boilerplate) and follow [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
 
 `npm run clean:git`
