@@ -98,12 +98,12 @@ module.exports = {
   devtool: production ? 'cheap-module-source-map' : 'eval',
 
   entry: production
-    ? './src/index'
+    ? path.join(__dirname, './src/index')
     : [
       'react-hot-loader/patch',
       `webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
       'webpack/hot/only-dev-server',
-      './src/index',
+      path.join(__dirname, './src/index'),
     ],
 
   output: {
@@ -113,7 +113,7 @@ module.exports = {
   },
 
   resolve: {
-    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    modules: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')],
     extensions: ['.js', '.jsx', '.json'],
   },
 
