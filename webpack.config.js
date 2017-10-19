@@ -24,6 +24,7 @@ const stylesLoaders = [
     loader: 'sass-resources-loader',
     options: {
       resources: [
+        './src/styles/colors.scss',
         './src/styles/variables.scss',
         './src/styles/mixins.scss',
       ],
