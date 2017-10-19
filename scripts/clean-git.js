@@ -6,7 +6,7 @@ const blubird = require('bluebird');
 const rimraf = blubird.promisify(require('rimraf'));
 
 const prompt = `${chalk.yellow`You are going to delete the .git folder`}.
-Are you sure you want to continue? (${chalk.cyan`Y/N`}) >`;
+Are you sure you want to continue? (${chalk.cyan`Y/n`}) >`;
 
 const handleDeleteSuccess = () => {
   console.log(`

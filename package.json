@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --colors",
     "deploy": "cross-env NODE_ENV=production BUILD=pages node scripts/deploy",
     "clean": "rimraf public",
+    "clean:git": "node scripts/clean-git",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint src --ext .js --ext .jsx --cache",
     "lint:scss": "stylelint 'src/**/*.scss' --cache --fix"
