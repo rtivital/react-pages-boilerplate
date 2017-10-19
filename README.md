@@ -24,3 +24,10 @@ This boilerplate introduces a simple way for developing serverless React applica
 * Install dependencies: `npm install`
 * Run the project: `npm start`
 * Init new Github repository to enable Github Pages publishing (this will remove .git folder attached to react-pages-boilerplate) and follow [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/): `npm run clean:git`
+
+## npm scripts
+* `npm start` – starts development server with webpack-dev-server
+* `npm test` – runs tape with babel-register
+* `npm run build` – builds project to production
+* `npm run deploy` – builds and deploys project to Github pages
+* `npm run lint` – lints both JavaScript (with `npm run lint:js`) and Sass files (with `npm run lint:scss`)
