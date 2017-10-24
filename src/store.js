@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import axios from 'axios';
+import axiosMiddleware from 'redux-axios-middleware';
 import thunkMiddleware from 'redux-thunk';
 import getReduxDevTools from 'utils/getReduxDevTools';
 import rootReducer from 'modules';
 
-const middlewares = [
-  thunkMiddleware,
-];
+const middlewares = [thunkMiddleware, axiosMiddleware(axios)];
 
 export default function configureStore(initialState) {
   const store = createStore(
