@@ -16,7 +16,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 * [redux](https://github.com/reactjs/redux)
 * [react-router@4](https://github.com/ReactTraining/react-router) with HashRouter (perfectly suits Github Pages environment)
 * [react-redux](https://github.com/reactjs/react-redux)
-* [axios](https://github.com/mzabriskie/axios)
+* [axios](https://github.com/mzabriskie/axios) with [redux-axios-middleware](https://github.com/svrcekmichal/redux-axios-middleware)
 * [ramda](http://ramdajs.com/) and [lodash](https://lodash.com/) as an utility libraries (unused parts will be cut off with babel and webpack plugins)
 
 ## Getting started
