@@ -89,7 +89,7 @@ const productionPlugins = [
 ];
 
 module.exports = {
-  devtool: production ? 'cheap-module-source-map' : 'eval',
+  devtool: production ? false : 'eval',
 
   entry: production
     ? path.join(__dirname, './src/index')
