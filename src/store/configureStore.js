@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import thunkMiddleware from 'redux-thunk';
-import getReduxDevTools from 'utils/getReduxDevTools';
-import rootReducer from 'modules';
+import getReduxDevTools from './getReduxDevTools';
+import rootReducer from './modules';
 
 const middlewares = [thunkMiddleware, axiosMiddleware(axios)];
 

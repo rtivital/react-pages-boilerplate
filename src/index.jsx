@@ -6,7 +6,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 
-import configureStore from './store';
+import configureStore from './store/configureStore';
 import App from './components/App';
 
 const store = configureStore();
