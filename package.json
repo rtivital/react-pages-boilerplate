@@ -12,7 +12,8 @@
     "clean:git": "node scripts/clean-git",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint src --ext .js --ext .jsx --cache",
-    "lint:scss": "stylelint 'src/**/*.scss' --cache --fix"
+    "lint:scss": "stylelint 'src/**/*.scss' --cache --fix",
+    "storybook": "start-storybook -p 9001 -c storybook"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "@storybook/react": "^3.2.15",
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
