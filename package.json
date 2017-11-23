@@ -11,8 +11,8 @@
     "clean": "rimraf public",
     "clean:git": "node scripts/clean-git",
     "lint": "npm run lint:js && npm run lint:scss",
-    "lint:js": "eslint src --ext .js --ext .jsx --cache",
-    "lint:scss": "stylelint 'src/**/*.scss' --cache --fix",
+    "lint:js": "eslint src --ext .js --ext .jsx --cache || true",
+    "lint:scss": "stylelint 'src/**/*.scss' --cache --fix || true",
     "storybook": "start-storybook -p 9001 -c storybook"
   },
   "repository": {
