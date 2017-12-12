@@ -13,7 +13,8 @@
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint src --ext .js --ext .jsx --cache || true",
     "lint:scss": "stylelint 'src/**/*.scss' --cache --fix || true",
-    "storybook": "start-storybook -p 9001 -c storybook"
+    "storybook": "start-storybook -p 9001 -c storybook",
+    "storybook:build": "build-storybook -c storybook"
   },
   "repository": {
     "type": "git",
