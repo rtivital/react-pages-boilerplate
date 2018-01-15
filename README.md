@@ -6,7 +6,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 ## Technologies
 
 * [Webpack@3](https://webpack.github.io/) as module bundler
-* [Babel](https://babeljs.io/) for js and jsx transpiling
+* [Babel](https://babeljs.io/) with [babel-preset-env](https://babeljs.io/docs/plugins/preset-env/) for js and jsx transpiling
 * [react-hot-loader@4](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
 * [Eslint](http://eslint.org/) and [Stylelint](http://stylelint.io/) for linting
 * [Tape](https://github.com/substack/tape) and [Enzyme](http://airbnb.io/enzyme/) for testing
@@ -20,7 +20,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 * [react-router@4](https://github.com/ReactTraining/react-router) with HashRouter (perfectly suits Github Pages environment)
 * [react-redux](https://github.com/reactjs/react-redux)
 * [axios](https://github.com/mzabriskie/axios) with [redux-axios-middleware](https://github.com/svrcekmichal/redux-axios-middleware)
-* [ramda](http://ramdajs.com/) and [lodash](https://lodash.com/) as an utility libraries (unused parts will be cut off with babel and webpack plugins)
+* [ramda](http://ramdajs.com/) and [lodash](https://lodash.com/) as utility libraries (unused parts will be cut off with babel and webpack plugins)
 * [react-icons](https://gorangajic.github.io/react-icons/)
 
 ## Getting started
