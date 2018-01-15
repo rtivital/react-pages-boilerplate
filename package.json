@@ -72,6 +72,7 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.4",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.6.2",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "extract-text-webpack-plugin": "^3.0.2",

@@ -1,9 +1,11 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['airbnb'],
+  extends: ['airbnb', 'plugin:jest/recommended'],
+  plugins: ['jest'],
   env: {
     browser: true,
     node: true,
+    'jest/globals': true,
   },
   rules: {
     'react/no-danger': 'off',
