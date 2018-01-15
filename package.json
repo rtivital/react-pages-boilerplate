@@ -4,6 +4,7 @@
   "description": "Simple boilerplate for working with React, redux, react-router and Github Pages",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "start": "cross-env NODE_ENV=development node scripts/start",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --colors",
     "deploy": "cross-env NODE_ENV=production BUILD=pages node scripts/deploy",
@@ -78,6 +79,7 @@
     "gh-pages": "^1.1.0",
     "git-repo-name": "^0.6.0",
     "html-webpack-plugin": "^2.30.1",
+    "identity-obj-proxy": "^3.0.0",
     "ignore-styles": "^5.0.1",
     "jest": "^22.0.6",
     "lodash-webpack-plugin": "^0.11.4",
