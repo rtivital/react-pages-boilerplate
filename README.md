@@ -40,3 +40,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 * `npm run lint` – lints both JavaScript (with `npm run lint:js`) and Sass files (with `npm run lint:scss`)
 * `npm run storybook` – starts storybook server on port 9001
 * `npm run prettier` – format js and jsx files with prettier
+
+## Changelog
+
+See [releases section](https://github.com/rtivital/react-pages-boilerplate/releases/) to get information about new cool features added to the project.
