@@ -2,15 +2,7 @@
   "presets": [
     "react",
     "stage-1",
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": ["last 2 versions"]
-        },
-        "modules": false
-      }
-    ]
+    ["env", { "targets": { "browsers": ["last 2 versions"] }, "modules": false }]
   ],
 
   "plugins": ["transform-decorators-legacy", "transform-class-properties"],
@@ -19,6 +11,12 @@
     "production": {
       "presets": ["react-optimize"],
       "plugins": ["transform-runtime", "ramda", "lodash"]
+    },
+
+    "test": {
+      "presets": [
+        ["env", { "targets": { "browsers": ["last 2 versions"] } }]
+      ]
     }
   }
 }
