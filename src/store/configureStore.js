@@ -18,6 +18,7 @@ export default function configureStore(initialState) {
   // this will be cut out in production
   if (module.hot) {
     module.hot.accept('./modules', () => {
+      // eslint-disable-next-line global-require
       const nextRootReducer = require('./modules/index');
 
       store.replaceReducer(nextRootReducer);
