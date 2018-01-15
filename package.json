@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "prettier": "prettier 'src/**/**/*.?(js|jsx)' --write",
     "start": "cross-env NODE_ENV=development node scripts/start",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --colors",
     "deploy": "cross-env NODE_ENV=production BUILD=pages node scripts/deploy",
@@ -90,6 +91,7 @@
     "open-browser-webpack-plugin": "^0.0.5",
     "postcss": "^6.0.16",
     "postcss-loader": "^2.0.10",
+    "prettier": "^1.10.2",
     "react-addons-test-utils": "^15.6.2",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
