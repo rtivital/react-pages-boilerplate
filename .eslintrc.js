@@ -9,7 +9,6 @@ module.exports = {
   },
   rules: {
     'react/no-danger': 'off',
-    'import/no-extraneous-dependencies': 'off',
     'arrow-parens': 'off',
     'object-curly-newline': 'off',
     'global-require': 'off',
