@@ -1,16 +1,10 @@
 module.exports = {
-  automock: false,
-  browser: true,
-  bail: false,
-  verbose: false,
+  verbose: true,
   setupTestFrameworkScriptFile: '<rootDir>/enzyme.setup.js',
-  collectCoverageFrom: ['src/**/*.{js,jsx}', '!**/node_modules/**', '!**/public/**'],
-  coverageDirectory: '<rootDir>/coverage',
-  globals: { __DEV__: !0 },
-  moduleFileExtensions: ['js', 'json', 'jsx', 'node'],
-  moduleNameMapper: { '\\.(css|less|styl|scss|sass|sss)$': 'identity-obj-proxy' },
+  moduleFileExtensions: ['js', 'json', 'jsx'],
+  moduleNameMapper: { '\\.(css|scss|sass)$': 'identity-obj-proxy' },
   transform: {
     '\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest',
-    '^(?!.*\\.(js|jsx|json|css|less|styl|scss|sass|sss)$)': 'identity-obj-proxy',
+    '^(?!.*\\.(css|scss|sass)$)': 'identity-obj-proxy',
   },
 };
