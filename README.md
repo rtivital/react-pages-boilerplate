@@ -1,18 +1,20 @@
 # React pages boilerplate
+
 ![Cover](cover.png)
 This boilerplate introduces a simple way for developing serverless React applications, which are perfect for serving from [Github Pages](https://pages.github.com/).
 
 ## Technologies
+
 * [Webpack@3](https://webpack.github.io/) as module bundler
 * [Babel](https://babeljs.io/) for js and jsx transpiling
-* [react-hot-loader@3](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
+* [react-hot-loader@4](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
 * [Eslint](http://eslint.org/) and [Stylelint](http://stylelint.io/) for linting
 * [Tape](https://github.com/substack/tape) and [Enzyme](http://airbnb.io/enzyme/) for testing
 * [Sass](http://sass-lang.com/), [PostCSS](http://postcss.org/) and [Autoprefixer](https://github.com/postcss/autoprefixer) for styles processing
 * [Storybook](https://storybook.js.org/) for painless UI development and testing
 
-
 ## Preinstalled and configured libraries
+
 * [react@16](https://github.com/facebook/react)
 * [redux](https://github.com/reactjs/redux)
 * [react-router@4](https://github.com/ReactTraining/react-router) with HashRouter (perfectly suits Github Pages environment)
@@ -22,12 +24,14 @@ This boilerplate introduces a simple way for developing serverless React applica
 * [react-icons](https://gorangajic.github.io/react-icons/)
 
 ## Getting started
+
 * Clone `git clone https://github.com/rtivital/react-pages-boilerplate` or [download](https://github.com/rtivital/react-pages-boilerplate/archive/master.zip) this repository.
 * Install dependencies: `npm install`
 * Run the project: `npm start`
 * Remove git folder with `npm run clean:git` (this will remove .git folder attached to react-pages-boilerplate) and follow [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/) to init new Github repository and enable publishing to Gihub Pages.
 
 ## npm scripts
+
 * `npm start` – starts development server with webpack-dev-server
 * `npm test` – runs tape with babel-register
 * `npm run build` – builds project to production (Note that the result bundle is not suitable for hosting on Github Pages, use `npm run deploy` to build and deploy to Github Pages)
