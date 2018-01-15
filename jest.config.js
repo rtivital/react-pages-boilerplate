@@ -3,6 +3,7 @@ module.exports = {
   browser: true,
   bail: false,
   verbose: false,
+  setupTestFrameworkScriptFile: '<rootDir>/enzyme.setup.js',
   collectCoverageFrom: ['src/**/*.{js,jsx}', '!**/node_modules/**', '!**/public/**'],
   coverageDirectory: '<rootDir>/coverage',
   globals: { __DEV__: !0 },
