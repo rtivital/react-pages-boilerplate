@@ -25,6 +25,11 @@ module.exports = {
         loaders: stylesLoaders,
         include: path.resolve(__dirname, '../'),
       },
+
+      {
+        test: /\.(svg|png|jpg|gif|woff|woff2|otf|ttf|eot)$/,
+        loader: 'file-loader',
+      },
     ],
   },
 
