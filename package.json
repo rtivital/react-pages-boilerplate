@@ -50,7 +50,8 @@
     "react-router-prop-types": "0.0.3",
     "redux": "^3.7.2",
     "redux-axios-middleware": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "storybook-router": "^0.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
