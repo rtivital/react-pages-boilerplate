@@ -97,7 +97,6 @@ module.exports = {
   entry: production
     ? path.join(__dirname, './src/index')
     : [
-      'react-hot-loader/patch',
       `webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
       'webpack/hot/only-dev-server',
       path.join(__dirname, './src/index'),
