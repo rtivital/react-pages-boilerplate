@@ -1,8 +1,9 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 import HomePage from 'components/routes/home/HomePage';
 
-export default function App() {
+function App() {
   return (
     <HashRouter>
       <Switch>
@@ -11,3 +12,5 @@ export default function App() {
     </HashRouter>
   );
 }
+
+export default hot(module)(App)
