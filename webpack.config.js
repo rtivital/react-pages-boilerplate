@@ -6,6 +6,8 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
@@ -54,6 +56,7 @@ const loaders = [
 const pluginsBase = [
   new HtmlWebpackPlugin({ template: 'template.ejs' }),
   new FaviconsWebpackPlugin(SETTINGS.FAVICONS),
+  new BundleAnalyzerPlugin({ analyzerMode: production ? 'static' : 'disabled' }),
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
