@@ -8,9 +8,11 @@ const inCreaseValueCount = () => {
 };
 
 test('UI/Button', () => {
-  const wrapper = shallow(<Button onClick={inCreaseValueCount}>Hello</Button>);
+  const wrapper = shallow(<Button theme="blue" onClick={inCreaseValueCount}>Hello</Button>);
   wrapper.simulate('click');
 
   expect(wrapper.text()).toEqual('Hello');
   expect(clickTestValue).toEqual(1);
+
+  expect(wrapper).toMatchSnapshot();
 });
