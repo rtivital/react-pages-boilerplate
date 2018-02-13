@@ -11,7 +11,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 * [Eslint](http://eslint.org/) and [Stylelint](http://stylelint.io/) for linting
 * [Prettier](https://prettier.io/) for automated code formatting
 * [Jest](https://facebook.github.io/jest/) with [Enzyme](http://airbnb.io/enzyme/) for testing
-* [Sass](http://sass-lang.com/) and [PostCSS](http://postcss.org/) with [Autoprefixer](https://github.com/postcss/autoprefixer) for styles processing
+* CSS Modules, [Sass](http://sass-lang.com/) and [PostCSS](http://postcss.org/) with [Autoprefixer](https://github.com/postcss/autoprefixer) for styles processing
 * [Storybook](https://storybook.js.org/) for painless UI development and testing
 
 ## Preinstalled and configured libraries
@@ -34,7 +34,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 ## npm scripts
 
 * `npm start` – starts development server with webpack-dev-server
-* `npm test` – runs tape with babel-register
+* `npm test` – runs tests with Jest
 * `npm run build` – builds project to production (Note that the result bundle is not suitable for hosting on Github Pages, use `npm run deploy` to build and deploy to Github Pages)
 * `npm run deploy` – builds and deploys project to Github pages
 * `npm run lint` – lints both JavaScript (with `npm run lint:js`) and Sass files (with `npm run lint:scss`)
