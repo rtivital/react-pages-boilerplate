@@ -16,7 +16,11 @@ const pagesBuild = process.env.BUILD === 'pages';
 const stylesLoaders = [
   {
     loader: 'css-loader',
-    options: { minimize: production },
+    options: {
+      minimize: production,
+      modules: true,
+      localIdentName: '[path][name]__[local]--[hash:base64:5]',
+    },
   },
   'postcss-loader',
   'sass-loader',

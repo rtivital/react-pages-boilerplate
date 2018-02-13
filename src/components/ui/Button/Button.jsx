@@ -1,10 +1,10 @@
 import { createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import './button.scss';
+import styles from './button.scss';
 
 export default function Button({ component, theme, className, ...others }) {
-  const buttonClassName = cx('button', `button--${theme}`, className);
+  const buttonClassName = cx(styles.button, styles[`button--${theme}`], className);
   const props = { ...others, className: buttonClassName };
   return createElement(component, props);
 }
