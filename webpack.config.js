@@ -23,15 +23,11 @@ const stylesLoaders = [
     },
   },
   'postcss-loader',
-  'sass-loader',
   {
-    loader: 'sass-resources-loader',
+    loader: 'sass-loader',
     options: {
-      resources: [
-        path.join(__dirname, 'src/styles/colors.scss'),
-        path.join(__dirname, 'src/styles/variables.scss'),
-        path.join(__dirname, 'src/styles/mixins.scss'),
-      ],
+      data: '@import "styles/globals";',
+      includePaths: [path.join(__dirname, 'src')],
     },
   },
 ];
