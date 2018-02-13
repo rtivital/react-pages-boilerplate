@@ -19,7 +19,7 @@ const stylesLoaders = [
     options: {
       minimize: production,
       modules: true,
-      localIdentName: '[path][name]__[local]--[hash:base64:5]',
+      localIdentName: production ? '[hash:base64:7]' : '[path]__[local]--[hash:base64:5]',
     },
   },
   'postcss-loader',
