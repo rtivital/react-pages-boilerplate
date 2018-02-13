@@ -27,6 +27,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 ## Getting started
 
 * Clone `git clone https://github.com/rtivital/react-pages-boilerplate` or [download](https://github.com/rtivital/react-pages-boilerplate/archive/master.zip) this repository.
+* (Optional) Run `nvm use`. This will ensure that you are running the supported version of Node.js. You can nvm installation instructions [here](https://github.com/creationix/nvm).
 * Install dependencies: `npm install`
 * Run the project: `npm start`
 * Remove git folder with `npm run clean:git` (this will remove .git folder attached to react-pages-boilerplate) and follow [these instructions](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/) to init new Github repository and enable publishing to Gihub Pages.
