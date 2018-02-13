@@ -3,17 +3,20 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const stylesLoaders = [
   'style-loader',
-  'css-loader',
-  'postcss-loader',
-  'sass-loader',
   {
-    loader: 'sass-resources-loader',
+    loader: 'css-loader',
     options: {
-      resources: [
-        path.join(__dirname, '../src/styles/colors.scss'),
-        path.join(__dirname, '../src/styles/variables.scss'),
-        path.join(__dirname, '../src/styles/mixins.scss'),
-      ],
+      minimize: false,
+      modules: true,
+      localIdentName: '[path]__[local]--[hash:base64:5]',
+    },
+  },
+  'postcss-loader',
+  {
+    loader: 'sass-loader',
+    options: {
+      data: '@import "styles/globals";',
+      includePaths: [path.join(__dirname, '../src')],
     },
   },
 ];
@@ -34,9 +37,7 @@ module.exports = {
     ],
   },
 
-  plugins: [
-    new OpenBrowserPlugin({ url: 'http://localhost:9001' }),
-  ],
+  plugins: [new OpenBrowserPlugin({ url: 'http://localhost:9001' })],
 
   resolve: {
     modules: [path.join(__dirname, '../src'), 'node_modules'],
