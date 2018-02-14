@@ -42,9 +42,22 @@ const loaders = [
 
   {
     test: /\.(css|scss)$/,
+    include: path.join(__dirname, './src'),
     loader: production
       ? ExtractTextPlugin.extract({ fallback: 'style-loader', use: stylesLoaders })
       : ['style-loader', ...stylesLoaders],
+  },
+
+  {
+    // do not load styles as css modules from other direcroies (e.g. node_modules) but src
+    test: /\.(css)$/,
+    loaders: production
+      ? ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: ['css-loader', 'postcss-loader'],
+      })
+      : ['style-loader', 'css-loader', 'postcss-loader'],
+    exclude: path.resolve(__dirname, '../src'),
   },
 
   {
