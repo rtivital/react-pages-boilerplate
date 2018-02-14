@@ -27,7 +27,13 @@ module.exports = {
       {
         test: /\.(scss|css)$/,
         loaders: stylesLoaders,
-        include: path.resolve(__dirname, '../'),
+        include: path.resolve(__dirname, '../src'),
+      },
+
+      {
+        test: /\.(css)$/,
+        loaders: ['style-loader', 'css-loader', 'postcss-loader'],
+        exclude: path.resolve(__dirname, '../src'),
       },
 
       {
