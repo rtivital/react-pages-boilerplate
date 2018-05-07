@@ -13,6 +13,7 @@ const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
 const pagesBuild = process.env.BUILD === 'pages';
+const analizer = process.env.ANALYZE === '1';
 
 const stylesLoaders = [
   {
@@ -70,7 +71,7 @@ const rules = [
 const pluginsBase = [
   new HtmlWebpackPlugin({ template: 'template.ejs' }),
   new FaviconsWebpackPlugin(SETTINGS.FAVICONS),
-  new BundleAnalyzerPlugin({ analyzerMode: production ? 'static' : 'disabled' }),
+  new BundleAnalyzerPlugin({ analyzerMode: analizer ? 'server' : 'disabled' }),
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
