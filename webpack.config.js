@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -85,6 +86,7 @@ const developmentPlugins = [
 ];
 
 const productionPlugins = [
+  new CleanWebpackPlugin([SETTINGS.PUBLIC_PATH]),
   ...pluginsBase,
   new LodashModuleReplacementPlugin(),
   new ExtractTextPlugin('[name].css'),
