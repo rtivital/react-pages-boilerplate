@@ -23,6 +23,7 @@ jspm_packages
 
 # Project Files
 public
+storybook-static
 docs
 .eslintcache
 .stylelintcache
