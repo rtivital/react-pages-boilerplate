@@ -28,8 +28,9 @@
   },
   "homepage": "https://github.com/rtivital/react-pages-boilerplate#readme",
   "dependencies": {
+    "@storybook/addon-actions": "^3.4.3",
     "@storybook/addon-centered": "^3.4.3",
-    "@storybook/react": "^3.4.3",
+    "@storybook/react": "^4.0.0-alpha.4",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
