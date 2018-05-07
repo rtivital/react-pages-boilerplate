@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -82,7 +82,17 @@ const developmentPlugins = [
   ...pluginsBase,
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NamedModulesPlugin(),
-  new OpenBrowserPlugin({ url: `http://localhost:${SETTINGS.PORT}` }),
+  new BrowserSyncPlugin(
+    {
+      host: 'localhost',
+      port: SETTINGS.PORT,
+      proxy: `http://localhost:${SETTINGS.PORT}`,
+      notify: false,
+    },
+    {
+      reload: false,
+    }
+  ),
 ];
 
 const productionPlugins = [
