@@ -32,7 +32,7 @@ const stylesLoaders = [
   },
 ];
 
-const loaders = [
+const rules = [
   {
     test: /\.(js|jsx)$/,
     loader: 'babel-loader',
@@ -89,23 +89,16 @@ const productionPlugins = [
   new LodashModuleReplacementPlugin(),
   new ExtractTextPlugin('[name].css'),
   new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    beautify: false,
-    comments: false,
-    compress: {
-      sequences: true,
-      booleans: true,
-      loops: true,
-      unused: false,
-      warnings: false,
-      drop_console: true,
-      unsafe: true,
-    },
-  }),
 ];
 
 module.exports = {
   devtool: production ? false : 'eval',
+
+  mode: production ? 'production' : 'development',
+
+  optimization: {
+    minimize: production,
+  },
 
   entry: production
     ? path.join(__dirname, './src/index')
@@ -126,6 +119,6 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
 
-  module: { loaders },
+  module: { rules },
   plugins: production ? productionPlugins : developmentPlugins,
 };
