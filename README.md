@@ -5,7 +5,7 @@ This boilerplate introduces a simple way for developing serverless React applica
 
 ## Technologies
 
-* [Webpack@3](https://webpack.github.io/) as module bundler
+* [Webpack@4](https://webpack.js.org/) as module bundler
 * [Babel](https://babeljs.io/) with [babel-preset-env](https://babeljs.io/docs/plugins/preset-env/) for js and jsx transpiling
 * [react-hot-loader@4](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
 * [Eslint](http://eslint.org/) and [Stylelint](http://stylelint.io/) for linting
