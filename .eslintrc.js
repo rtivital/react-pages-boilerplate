@@ -18,6 +18,7 @@ module.exports = {
     // just the formatting issues, prettier does all the job
     'object-curly-newline': 'off',
     'spaced-comment': 'off',
+    'react/jsx-one-expression-per-line': 'off',
     'comma-dangle': [
       'error',
       {
