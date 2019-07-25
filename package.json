@@ -54,7 +54,7 @@
     "redux-axios-middleware": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "storybook-router": "^0.3.4",
-    "webpack-bundle-analyzer": "^2.13.1"
+    "webpack-bundle-analyzer": "^3.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^9.1.1",
