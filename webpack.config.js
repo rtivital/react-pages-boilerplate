@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -19,9 +19,9 @@ const stylesLoaders = [
   {
     loader: 'css-loader',
     options: {
-      minimize: production,
-      modules: true,
-      localIdentName: production ? '[hash:base64:7]' : '[path]__[local]--[hash:base64:5]',
+      modules: {
+        localIdentName: production ? '[hash:base64:7]' : '[path]__[local]--[hash:base64:5]',
+      },
     },
   },
   'postcss-loader',
@@ -97,7 +97,7 @@ const developmentPlugins = [
 ];
 
 const productionPlugins = [
-  new CleanWebpackPlugin([SETTINGS.PUBLIC_PATH]),
+  new CleanWebpackPlugin(),
   ...pluginsBase,
   new LodashModuleReplacementPlugin(),
   new ExtractTextPlugin('[name].css'),
