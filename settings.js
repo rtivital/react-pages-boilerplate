@@ -1,26 +1,17 @@
-const path = require('path');
-
 module.exports = {
-  // port where app should be started
-  PORT: 3823,
+  // Base application title used in document.title
+  title: 'React pages boilerplate',
 
-  FAVICONS: {
-    logo: path.join(__dirname, './favicon.png'), // image from which favicons will be generated
-    background: '#ffeeee', // theme color for mobile browsers
-    // type of favicons to generate, WARNING: dramaticly decreases build speed, use wisely
-    icons: {
-      android: false,
-      appleIcon: false,
-      appleStartup: false,
-      coast: false,
-      favicons: true,
-      firefox: false,
-      opengraph: false,
-      twitter: false,
-      yandex: false,
-      windows: false,
-    },
-  },
+  // use cname option to add CNAME file to webpack build
+  // CNAME file allows to use custom domain names with gh-pages, example:
+  // cname: 'omatsuri.app'
+  cname: null,
 
-  PUBLIC_PATH: path.join(__dirname, './public'),
+  // add repo path for username.github.io/repoPath for react router to recognize paths,
+  // use only when deployed to github.io, leave as null for deployments with custom domains
+  repoPath: null,
+
+  // list of routes that should be prerendered
+  // list should always contain '/' and '/404' for gh-pages to recognize app
+  prerenderRoutes: ['/', '/404'],
 };
