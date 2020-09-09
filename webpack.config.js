@@ -1,137 +1,190 @@
 const path = require('path');
-const getRepositoryName = require('git-repo-name').sync;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CnameWebpackPlugin = require('cname-webpack-plugin');
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const babelrc = require('./.babelrc');
 
-const SETTINGS = require('./settings');
-
-const production = process.env.NODE_ENV === 'production';
-const pagesBuild = process.env.BUILD === 'pages';
-const analizer = process.env.ANALYZE === '1';
-
-const stylesLoaders = [
-  {
-    loader: 'css-loader',
-    options: {
-      minimize: production,
-      modules: true,
-      localIdentName: production ? '[hash:base64:7]' : '[path]__[local]--[hash:base64:5]',
-    },
-  },
-  'postcss-loader',
-  {
-    loader: 'sass-loader',
-    options: {
-      data: '@import "styles/globals";',
-      includePaths: [path.join(__dirname, 'src')],
-    },
-  },
-];
-
-const rules = [
-  {
-    test: /\.(js|jsx)$/,
-    loader: 'babel-loader',
-    include: path.join(__dirname, 'src'),
-    exclude: /node_modules/,
-  },
-
-  {
-    test: /\.(css|scss)$/,
-    include: path.join(__dirname, './src'),
-    loader: production
-      ? ExtractTextPlugin.extract({ fallback: 'style-loader', use: stylesLoaders })
-      : ['style-loader', ...stylesLoaders],
-  },
-
-  {
-    // do not load styles as css modules from other direcroies (e.g. node_modules) but src
-    test: /\.(css)$/,
-    loaders: production
-      ? ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: ['css-loader', 'postcss-loader'],
-      })
-      : ['style-loader', 'css-loader', 'postcss-loader'],
-    exclude: path.resolve(__dirname, '../src'),
-  },
-
-  {
-    test: /\.(svg|png|jpg|gif|woff|woff2|otf|ttf|eot)$/,
-    loader: 'file-loader',
-  },
-];
-
-const pluginsBase = [
-  new HtmlWebpackPlugin({ template: 'template.ejs' }),
-  new FaviconsWebpackPlugin(SETTINGS.FAVICONS),
-  new BundleAnalyzerPlugin({ analyzerMode: analizer ? 'server' : 'disabled' }),
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
-    },
-  }),
-];
-
-const developmentPlugins = [
-  ...pluginsBase,
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NamedModulesPlugin(),
-  new BrowserSyncPlugin(
-    {
-      host: 'localhost',
-      port: SETTINGS.PORT,
-      proxy: `http://localhost:${SETTINGS.PORT}`,
-      notify: false,
-    },
-    {
-      reload: false,
-    }
-  ),
-];
-
-const productionPlugins = [
-  new CleanWebpackPlugin(),
-  ...pluginsBase,
-  new LodashModuleReplacementPlugin(),
-  new ExtractTextPlugin('[name].css'),
-  new webpack.optimize.OccurrenceOrderPlugin(),
-];
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const port = 8262;
+const entry = path.join(__dirname, './src/index.jsx');
+const output = path.join(__dirname, './dist');
+const publicPath = '/';
 
 module.exports = {
-  devtool: production ? false : 'eval',
-
-  mode: production ? 'production' : 'development',
+  mode,
 
   optimization: {
-    minimize: production,
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
 
-  entry: production
-    ? path.join(__dirname, './src/index')
-    : [
-      `webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
-      'webpack/hot/only-dev-server',
-      path.join(__dirname, './src/index'),
-    ],
+  devServer: {
+    port,
+    compress: true,
+    contentBase: output,
+    publicPath,
+    stats: { colors: true },
+    hot: true,
+    historyApiFallback: true,
+  },
+
+  devtool: mode === 'production' ? false : 'eval',
+
+  entry:
+    mode === 'production'
+      ? entry
+      : [
+        `webpack-dev-server/client?http://localhost:${port}`,
+        'webpack/hot/only-dev-server',
+        entry,
+      ],
 
   output: {
-    path: SETTINGS.PUBLIC_PATH,
-    filename: 'bundle.js',
-    publicPath: pagesBuild ? `/${getRepositoryName()}/` : '/',
+    path: output,
+    filename: '[hash].bundle.js',
+    publicPath,
   },
 
   resolve: {
-    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    modules: [path.join(__dirname, './node_modules')],
     extensions: ['.js', '.jsx'],
   },
 
-  module: { rules },
-  plugins: production ? productionPlugins : developmentPlugins,
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        include: path.join(__dirname, './src'),
+        use: {
+          loader: 'babel-loader',
+          options: babelrc,
+        },
+      },
+
+      {
+        test: /\.(js|jsx)$/,
+        use: 'react-hot-loader/webpack',
+        include: /node_modules/,
+      },
+
+      {
+        test: /\.worker\.js$/,
+        use: { loader: 'worker-loader' },
+      },
+
+      {
+        test: /\.(less)$/,
+        use: [
+          mode === 'production'
+            ? {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath,
+              },
+            }
+            : 'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName:
+                  mode === 'production'
+                    ? '[hash:base64:10]'
+                    : '[path][name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              additionalData: "@import 'open-color/open-color.less';",
+            },
+          },
+          ...(mode === 'production' ? ['postcss-loader'] : []),
+        ],
+      },
+
+      {
+        test: /\.(css)$/,
+        use: [
+          mode === 'production'
+            ? {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath,
+              },
+            }
+            : 'style-loader',
+          'css-loader',
+          'postcss-loader',
+        ],
+      },
+
+      {
+        test: /\.(svg|png|jpg|gif|woff|woff2|otf|ttf|eot)$/,
+        loader: 'file-loader',
+      },
+    ],
+  },
+
+  plugins: [
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(mode) }),
+    new FaviconsWebpackPlugin({
+      logo: path.join(__dirname, './favicon.png'),
+      background: '#ffeeee',
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        opengraph: true,
+        twitter: false,
+        yandex: false,
+        windows: false,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      templateContent: ({ htmlWebpackPlugin }) => `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            ${htmlWebpackPlugin.tags.headTags}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Omatsuri</title>
+          </head>
+          <body>
+            <noscript>
+              Enable JavaScript to use Frontend toolbox
+            </noscript>
+
+            <div id="app"></div>
+            ${htmlWebpackPlugin.tags.bodyTags}
+          </body>
+        </html>
+      `,
+    }),
+    ...(mode !== 'production'
+      ? [
+        new webpack.HotModuleReplacementPlugin(),
+        new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
+      ]
+      : [
+        new MiniCssExtractPlugin(),
+        new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
+        new PrerenderSPAPlugin({
+          staticDir: output,
+          routes: ['/', '/about', '/404'],
+        }),
+      ]),
+  ],
 };

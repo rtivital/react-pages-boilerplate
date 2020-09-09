@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'components/ui/Button/Button';
+import Button from '../../ui/Button/Button';
 
 export default function HomePage() {
   return (
