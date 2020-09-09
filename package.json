@@ -10,10 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --colors",
     "analyze": "cross-env NODE_ENV=production ANALYZE=1 webpack --progress --colors",
     "deploy": "cross-env NODE_ENV=production BUILD=pages node scripts/deploy",
-    "clean:git": "node scripts/clean-git",
-    "lint": "npm run lint:js && npm run lint:scss",
-    "lint:js": "eslint src --ext .js --ext .jsx --cache || true",
-    "lint:scss": "stylelint 'src/**/*.scss' --cache --fix || true",
+    "lint": "eslint src --ext .js --ext .jsx",
     "storybook": "start-storybook -p 9001 -c storybook",
     "storybook:build": "build-storybook -c storybook"
   },
