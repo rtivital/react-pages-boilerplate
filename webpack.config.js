@@ -161,7 +161,7 @@ module.exports = {
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Omatsuri</title>
+            <title>${settings.title}</title>
           </head>
           <body>
             <noscript>
@@ -184,7 +184,7 @@ module.exports = {
         ...(settings.cname ? [new CnameWebpackPlugin({ domain: settings.cname })] : []),
         new PrerenderSPAPlugin({
           staticDir: output,
-          routes: ['/', '/about', '/404'],
+          routes: settings.prerenderRoutes,
         }),
       ]),
   ],

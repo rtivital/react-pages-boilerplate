@@ -28,7 +28,6 @@ This boilerplate introduces a simple way for developing serverless React applica
 - `npm run build` – builds project to production
 - `npm run deploy` – builds and deploys project to Github pages
 - `npm run lint` – lints JavaScript files
-- `npm run storybook` – starts storybook server
 - `npm run prettier` – format js and jsx files with prettier
 
 ## Changelog
