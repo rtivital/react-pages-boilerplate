@@ -1,5 +1,5 @@
 import 'normalize.css';
-import './styles/main.less';
+import './styles.less';
 
 import React from 'react';
 import { render } from 'react-dom';
