@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "react-pages-boilerplate",
+  "description": "Simple boilerplate for working with React, redux, react-router and Github Pages",
+  "icons": {
+    "60": "/react-pages-boilerplate/assets/firefox_app_60x60.png",
+    "128": "/react-pages-boilerplate/assets/firefox_app_128x128.png",
+    "512": "/react-pages-boilerplate/assets/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Vitaly Rtishchev",
+    "url": "http://github.com/rtivital"
+  }
+}
