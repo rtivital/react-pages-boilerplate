@@ -8,11 +8,8 @@
     "prettier": "prettier 'src/**/**/*.?(js|jsx)' --write",
     "start": "webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --progress --colors",
-    "analyze": "cross-env NODE_ENV=production ANALYZE=1 webpack --progress --colors",
     "deploy": "cross-env NODE_ENV=production BUILD=pages node scripts/deploy",
-    "lint": "eslint src --ext .js --ext .jsx",
-    "storybook": "start-storybook -p 9001 -c storybook",
-    "storybook:build": "build-storybook -c storybook"
+    "lint": "eslint src --ext .js --ext .jsx"
   },
   "browserslist": [
     "last 2 version"

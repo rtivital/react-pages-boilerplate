@@ -21,6 +21,15 @@ This boilerplate introduces a simple way for developing serverless React applica
 - Install dependencies: `yarn`
 - Run the project: `npm start`
 
+## Settings
+
+[settings.js](./settings.js) file includes all important settings that should be used to setup deployments to gh-pages:
+
+- **title** – Base application title
+- **cname** – Adds CNAME file that allows to use custom domain names with gh-pages
+- **repoPath** – username.github.io/repoPath for react router to recognize gh-pages paths
+- **prerenderRoutes** – routes that should be prerendered before deploy
+
 ## npm scripts
 
 - `npm start` – starts development server with webpack-dev-server
