@@ -9,12 +9,13 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const babelrc = require('./.babelrc');
+const settings = require('./settings');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const port = 8262;
 const entry = path.join(__dirname, './src/index.jsx');
 const output = path.join(__dirname, './dist');
-const publicPath = '/';
+const publicPath = mode === 'production' ? settings.repoPath || '/' : '/';
 
 module.exports = {
   mode,
@@ -180,7 +181,7 @@ module.exports = {
       ]
       : [
         new MiniCssExtractPlugin(),
-        new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
+        ...(settings.cname ? [new CnameWebpackPlugin({ domain: settings.cname })] : []),
         new PrerenderSPAPlugin({
           staticDir: output,
           routes: ['/', '/about', '/404'],
