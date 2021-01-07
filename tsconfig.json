@@ -1,0 +1,18 @@
+{
+  "plugins": [],
+  "include": ["./"],
+  "exclude": ["dist"],
+
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "baseUrl": "."
+  }
+}

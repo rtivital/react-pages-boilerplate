@@ -7,13 +7,11 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
-const PrerenderSPAPlugin = require('prerender-spa-plugin');
-const babelrc = require('./.babelrc');
 const settings = require('./settings');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const port = 8262;
-const entry = path.join(__dirname, './src/index.jsx');
+const entry = path.join(__dirname, './src/index.tsx');
 const output = path.join(__dirname, './dist');
 const publicPath = mode === 'production' ? settings.repoPath || '/' : '/';
 
@@ -40,10 +38,10 @@ module.exports = {
     mode === 'production'
       ? entry
       : [
-        `webpack-dev-server/client?http://localhost:${port}`,
-        'webpack/hot/only-dev-server',
-        entry,
-      ],
+          `webpack-dev-server/client?http://localhost:${port}`,
+          'webpack/hot/only-dev-server',
+          entry,
+        ],
 
   output: {
     path: output,
@@ -53,25 +51,16 @@ module.exports = {
 
   resolve: {
     modules: [path.join(__dirname, './node_modules')],
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
         include: path.join(__dirname, './src'),
-        use: {
-          loader: 'babel-loader',
-          options: babelrc,
-        },
-      },
-
-      {
-        test: /\.(js|jsx)$/,
-        use: 'react-hot-loader/webpack',
-        include: /node_modules/,
+        use: 'ts-loader',
       },
 
       {
@@ -84,11 +73,11 @@ module.exports = {
         use: [
           mode === 'production'
             ? {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath,
-              },
-            }
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                  publicPath,
+                },
+              }
             : 'style-loader',
           {
             loader: 'css-loader',
@@ -116,11 +105,11 @@ module.exports = {
         use: [
           mode === 'production'
             ? {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath,
-              },
-            }
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                  publicPath,
+                },
+              }
             : 'style-loader',
           'css-loader',
           'postcss-loader',
@@ -176,16 +165,12 @@ module.exports = {
     }),
     ...(mode !== 'production'
       ? [
-        new webpack.HotModuleReplacementPlugin(),
-        new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
-      ]
+          new webpack.HotModuleReplacementPlugin(),
+          new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
+        ]
       : [
-        new MiniCssExtractPlugin(),
-        ...(settings.cname ? [new CnameWebpackPlugin({ domain: settings.cname })] : []),
-        new PrerenderSPAPlugin({
-          staticDir: output,
-          routes: settings.prerenderRoutes,
-        }),
-      ]),
+          new MiniCssExtractPlugin(),
+          ...(settings.cname ? [new CnameWebpackPlugin({ domain: settings.cname })] : []),
+        ]),
   ],
 };

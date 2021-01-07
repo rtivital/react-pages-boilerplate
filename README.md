@@ -5,9 +5,8 @@ This boilerplate introduces a simple way for developing serverless React applica
 
 ## Technologies
 
+- Typescript
 - [Webpack@4](https://webpack.js.org/) as module bundler
-- [Babel](https://babeljs.io/) for js and jsx transpiling
-- [react-hot-loader@4](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
 - [Eslint](http://eslint.org/) for linting
 - [Prettier](https://prettier.io/) for automated code formatting
 - [Jest](https://facebook.github.io/jest/) with [Enzyme](http://airbnb.io/enzyme/) for testing
