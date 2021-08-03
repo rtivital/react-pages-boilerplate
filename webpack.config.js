@@ -7,6 +7,7 @@ const CnameWebpackPlugin = require('cname-webpack-plugin');
 const settings = require('./settings');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const entry = path.join(__dirname, './src/index.tsx');
 const port = 8262;
 const output = path.join(__dirname, './dist');
 const publicPath = mode === 'production' ? settings.repoPath || '/' : '/';
@@ -32,7 +33,14 @@ module.exports = {
 
   devtool: mode === 'production' ? false : 'eval',
 
-  entry: path.join(__dirname, './src/index.tsx'),
+  entry:
+    mode === 'production'
+      ? entry
+      : [
+          `webpack-dev-server/client?http://localhost:${port}`,
+          'webpack/hot/only-dev-server',
+          entry,
+        ],
 
   output: {
     path: output,
