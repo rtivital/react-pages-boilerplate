@@ -8,7 +8,6 @@ const settings = require('./settings');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const port = 8262;
-const entry = path.join(__dirname, './src/index.tsx');
 const output = path.join(__dirname, './dist');
 const publicPath = mode === 'production' ? settings.repoPath || '/' : '/';
 
@@ -17,6 +16,7 @@ module.exports = {
 
   optimization: {
     minimizer: [new TerserJSPlugin({})],
+    runtimeChunk: 'single',
   },
 
   devServer: {
@@ -27,22 +27,16 @@ module.exports = {
     stats: { colors: true },
     hot: true,
     historyApiFallback: true,
+    open: true,
   },
 
   devtool: mode === 'production' ? false : 'eval',
 
-  entry:
-    mode === 'production'
-      ? entry
-      : [
-          `webpack-dev-server/client?http://localhost:${port}`,
-          'webpack/hot/only-dev-server',
-          entry,
-        ],
+  entry: path.join(__dirname, './src/index.tsx'),
 
   output: {
     path: output,
-    filename: '[hash].bundle.js',
+    filename: '[name].js',
     publicPath,
   },
 
