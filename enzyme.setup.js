@@ -1,4 +1,8 @@
-import Enzyme from 'enzyme';
-import EnzymeAdapter from 'enzyme-adapter-react-16';
+const Enzyme = require('enzyme');
+const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
+const React = require('react');
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
+// Fix broken layout effects on testing environments
+React.useLayoutEffect = React.useEffect;
+
+Enzyme.configure({ adapter: new Adapter() });

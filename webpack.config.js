@@ -1,10 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
 const settings = require('./settings');
@@ -19,7 +16,7 @@ module.exports = {
   mode,
 
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new TerserJSPlugin({})],
   },
 
   devServer: {
@@ -61,59 +58,6 @@ module.exports = {
         exclude: /node_modules/,
         include: path.join(__dirname, './src'),
         use: 'ts-loader',
-      },
-
-      {
-        test: /\.worker\.js$/,
-        use: { loader: 'worker-loader' },
-      },
-
-      {
-        test: /\.(less)$/,
-        use: [
-          mode === 'production'
-            ? {
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                  publicPath,
-                },
-              }
-            : 'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName:
-                  mode === 'production'
-                    ? '[hash:base64:10]'
-                    : '[path][name]__[local]--[hash:base64:5]',
-              },
-            },
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              additionalData: "@import 'open-color/open-color.less';",
-            },
-          },
-          ...(mode === 'production' ? ['postcss-loader'] : []),
-        ],
-      },
-
-      {
-        test: /\.(css)$/,
-        use: [
-          mode === 'production'
-            ? {
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                  publicPath,
-                },
-              }
-            : 'style-loader',
-          'css-loader',
-          'postcss-loader',
-        ],
       },
 
       {
@@ -164,13 +108,7 @@ module.exports = {
       `,
     }),
     ...(mode !== 'production'
-      ? [
-          new webpack.HotModuleReplacementPlugin(),
-          new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
-        ]
-      : [
-          new MiniCssExtractPlugin(),
-          ...(settings.cname ? [new CnameWebpackPlugin({ domain: settings.cname })] : []),
-        ]),
+      ? [new webpack.HotModuleReplacementPlugin()]
+      : [...(settings.cname ? [new CnameWebpackPlugin({ domain: settings.cname })] : [])]),
   ],
 };
