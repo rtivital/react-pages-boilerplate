@@ -6,12 +6,11 @@ This boilerplate introduces a simple way for developing serverless React applica
 ## Technologies
 
 - Typescript
-- [Webpack@4](https://webpack.js.org/) as module bundler
+- [Mantine](https://mantine.dev/)
+- [Webpack@5](https://webpack.js.org/) as module bundler
 - [Eslint](http://eslint.org/) for linting
 - [Prettier](https://prettier.io/) for automated code formatting
 - [Jest](https://facebook.github.io/jest/) with [Enzyme](http://airbnb.io/enzyme/) for testing
-- css modules, less, autoprefixer for styles processing
-- [Storybook](https://storybook.js.org/) for painless UI development and testing
 
 ## Getting started
 
